@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
 :root {
 
     --color-knop-magenta: #D40069;
@@ -24,8 +27,19 @@ h1,h2,h3,h4,h5,h6 {
     font-family: var(--font-alumni);
 }
 
+h2{
+    font-size: 2rem;
+}
+
 .subHeading{
    font-size: 1.25rem; 
    font-family: var(--font-cousine);
    font-weight: bold;
+}
+
+
+@media screen and (min-width:1024px){
+    h2{
+        font-size: 4rem;
+    }
 }
