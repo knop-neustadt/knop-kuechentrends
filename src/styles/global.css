@@ -1,0 +1,31 @@
+:root {
+
+    --color-knop-magenta: #D40069;
+    --color-knop-turquoise: #00A3A2;
+    --color-dark: #2A3439;
+    --color-light: #FFFFFC;
+
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    min-height: 100svh;
+    font-size: 1rem;
+    font-family: var(--font-cousine);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-alumni);
+}
+
+.subHeading{
+   font-size: 1.25rem; 
+   font-family: var(--font-cousine);
+   font-weight: bold;
+}

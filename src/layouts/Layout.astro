@@ -1,5 +1,6 @@
 ---
 import {Font} from "astro:assets";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -10,7 +11,7 @@ import {Font} from "astro:assets";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Knop Küchentrends</title>
 		<Font cssVariable="--font-cousine" />
 		<Font cssVariable="--font-alumni" />
 	</head>
@@ -20,18 +21,3 @@ import {Font} from "astro:assets";
 		</main>
 	</body>
 </html>
-
-<style is:global>
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-
-	main {
-		min-height: 100svh;
-		font-size: 1.2rem;
-	}
-
-
-</style>

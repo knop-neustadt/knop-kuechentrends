@@ -1,19 +1,96 @@
-
 <div class="welcomeWrapper">
-    <img src="/path/to/your/image.jpg" alt="Küchentrends">
-    <p class="subHeading">Küchentrends</p>
-    <h1>Ihr Partner für die neue Küche in Neustadt!</h1>
+    <img
+        src="/images/welcomePicture.webp"
+        alt="Küchentrends"
+        class="welcomePicture"
+    />
+    <div class="stylediv"></div>
+    <div class="welcomeTextWrapper">
+        <p class="subHeading">Küchentrends</p>
+        <h1>Ihr Partner <span>für die neue Küche</span> in Neustadt!</h1>
+
+        <p class="welcomeParagraph">
+            Knop Neustadt schafft Küchen, die leben. Mit handwerklicher
+            Präzision und modernem Design entstehen Räume, in denen Qualität
+            spürbar wird.
+        </p>
+
+        <div class="welcomeButtonsWrapper">
+            <a href="/galerie">Galerie</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
+    </div>
 </div>
 
 <style>
-    .welcomeWrapper{
-        padding:1rem;
+    span {
+        display: block;
     }
+    .welcomePicture {
+        width: 100%;
+        height: 100svh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+    .welcomeWrapper {
+        padding: 1rem;
+        display: grid;
+        height: 100svh;
+    }
+
+    .stylediv {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        background: #000;
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+
+    .welcomeTextWrapper {
+        color: var(--color-light);
+        align-self: flex-end;
+        z-index: 1;
+
+    }
+
     h1 {
-        font-family: var(--font-alumni);
         font-weight: normal;
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 600;
-        line-height: 2.75rem;
+        line-height: 3rem;
+        margin-bottom: 5rem;
+        text-transform: capitalize;
+        padding-top: .5rem;
+    }
+
+    .welcomeButtonsWrapper {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        transform: translate(-0.5rem);
+        margin-top: 1rem;
+        a {
+            color: var(--color-light);
+            cursor: pointer;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            transition: all ease-in-out .1s;
+
+            &:hover {
+                background-color: var(--color-light);
+                color: var(--color-dark);
+            }
+        }
     }
 </style>
