@@ -5,7 +5,7 @@
 
     --color-knop-magenta: #D40069;
     --color-knop-turquoise: #00A3A2;
-    --color-dark: #2A3439;
+    --color-dark: #19181F;
     --color-light: #FFFFFC;
 
 }
@@ -23,23 +23,35 @@ main {
     font-family: var(--font-cousine);
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-alumni);
 }
 
-h2{
+h2 {
     font-size: 2rem;
 }
 
-.subHeading{
-   font-size: 1.25rem; 
-   font-family: var(--font-cousine);
-   font-weight: bold;
+.subHeading {
+    font-size: 1.25rem;
+    font-family: var(--font-cousine);
+    font-weight: bold;
+    padding-bottom: .5rem;
+
 }
 
 
-@media screen and (min-width:1024px){
-    h2{
-        font-size: 4rem;
+@media screen and (min-width:1024px) {
+    .subHeading{
+        padding-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 6rem;
+        font-weight: 500;
     }
 }

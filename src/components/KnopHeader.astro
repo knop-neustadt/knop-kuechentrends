@@ -1,3 +1,97 @@
+---
+import Image from "astro/components/Image.astro";
+import logoWhite from "../assets/images/KK_Logo_weiß.png";
+---
+
 <nav>
-    <img src="" alt="">
+    <a href="/">
+        <Image src={logoWhite} alt="Logo von Knop Küchentrends Neustadt" />
+        <ul>
+            <li>
+                <a href="#partners">Hersteller</a>
+            </li>
+            <li><a href="#process">Ablauf</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </a>
 </nav>
+
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: calc(100vw - 2rem);
+        transform: translate(-50%);
+        padding: 1rem;
+        z-index: 100;
+        align-items: center;
+        background-color: #19181fb6;
+        height: 5svh;
+        background-blend-mode: overlay;
+        backdrop-filter: blur(4px);
+        top: 1.25rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+
+    ul {
+        display: flex;
+        li {
+            padding-right: 1.25rem;
+
+            a {
+                color: var(--color-light);
+                font-family: var(--font-cousine);
+                text-decoration: none;
+                font-size: 1.5rem;
+            }
+
+            &:nth-child(5) {
+                padding: 0;
+            }
+        }
+    }
+
+    ul li a {
+        position: relative;
+        padding-bottom: 4px;
+    }
+
+    /* Die unsichtbare Linie im Normalzustand */
+    ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(
+            --color-light
+        ); /* Oder eine Akzentfarbe wie Coral */
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Beim Hovern wird die Linie von links nach rechts eingeblendet */
+    ul li a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    @media screen and (min-width: 1024px) {
+        nav {
+            padding: 1.5rem 2.5rem;
+        }
+    }
+</style>

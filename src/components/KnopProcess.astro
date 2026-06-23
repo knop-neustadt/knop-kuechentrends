@@ -1,43 +1,106 @@
+---
+import Image from "astro/components/Image.astro";
+
+import küche2 from "../assets/images/küche2.jpg";
+---
+
 <div class="processWrapper">
+    <div class="subHeading">Ablauf</div>
+
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" checked="checked" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
-            <h2>How do I create an account?</h2>
+            <h2>Beratung und Planung</h2>
         </div>
         <div class="collapse-content text-sm">
             <div class="contentSpacing">
                 <p>
-                    Click the "Sign Up" button in the top right corner and
-                    follow the registration process.
+                    Ob kleine Nische, oder große Küche im Landhausstil.
+                    Natürlich kümmern wir uns auch um den Abbau und die
+                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
+                    eine Kooperation mit dem Zweckverband Ostholstein ist die
+                    Entsorgung für Sie sogar kostenlos!
                 </p>
+
+                <Image
+                    src={küche2}
+                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    class="collapseImage"
+                    widths={[400, 600, 800, 1200]}
+                />
             </div>
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
-            <h2>I forgot my password. What should I do?</h2>
+            <h2>Aufmaß des Raumes</h2>
         </div>
         <div class="collapse-content text-sm">
             <div class="contentSpacing">
                 <p>
-                    Click on "Forgot Password" on the login page and follow the
-                    instructions sent to your email.
+                    Ob kleine Nische, oder große Küche im Landhausstil.
+                    Natürlich kümmern wir uns auch um den Abbau und die
+                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
+                    eine Kooperation mit dem Zweckverband Ostholstein ist die
+                    Entsorgung für Sie sogar kostenlos!
                 </p>
+
+                <Image
+                    src={küche2}
+                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    class="collapseImage"
+                    widths={[400, 600, 800, 1200]}
+                />
             </div>
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
-            <h2>How do I update my profile information?</h2>
+            <h2>Lieferung und Montage</h2>
         </div>
         <div class="collapse-content text-sm">
             <div class="contentSpacing">
                 <p>
-                    Go to "My Account" settings and select "Edit Profile" to
-                    make changes.
+                    Ob kleine Nische, oder große Küche im Landhausstil.
+                    Natürlich kümmern wir uns auch um den Abbau und die
+                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
+                    eine Kooperation mit dem Zweckverband Ostholstein ist die
+                    Entsorgung für Sie sogar kostenlos!
                 </p>
+
+                <Image
+                    src={küche2}
+                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    class="collapseImage"
+                    widths={[400, 600, 800, 1200]}
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse collapse-plus bg-base-100">
+        <input type="checkbox" name="my-accordion-1" />
+        <div class="collapse-title font-semibold">
+            <h2>Entsorgung der alten Küche</h2>
+        </div>
+        <div class="collapse-content text-sm">
+            <div class="contentSpacing">
+                <p>
+                    Ob kleine Nische, oder große Küche im Landhausstil.
+                    Natürlich kümmern wir uns auch um den Abbau und die
+                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
+                    eine Kooperation mit dem Zweckverband Ostholstein ist die
+                    Entsorgung für Sie sogar kostenlos!
+                </p>
+
+                <Image
+                    src={küche2}
+                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    class="collapseImage"
+                    widths={[400, 600, 800, 1200]}
+                />
             </div>
         </div>
     </div>
@@ -47,6 +110,12 @@
     .collapse {
         border-bottom: solid 1px var(--color-dark);
         border-radius: 0;
+        font-size: 2rem;
+    }
+
+    .collapse-title::after {
+        top: -0rem;
+        right: 0rem;
 
     }
 
@@ -54,15 +123,63 @@
         padding: 1rem;
     }
     .contentSpacing {
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        margin-top: 9rem;
+    }
+
+    .collapseImage {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        margin: 1rem 0rem;
+        border-radius: 10px;
+    }
+
+    .collapse-title::after {
+        right: 0.5rem;
+        font-family: var(--font-alumni);
+        font-weight: 500;
     }
 
     @media screen and (min-width: 1024px) {
+        .processWrapper {
+            padding: 2.5rem;
+            margin: auto;
+        }
+
         .collapse {
-            font-size: 3rem;
+            font-size: 4rem;
+        }
+
+        .collapse-title::after {
+            top: 2.5rem;
+            inset-inline-end: 2rem !important;
+        }
+
+        .collapseImage {
+            width: 100%;
+            height: auto;
+
+            margin: 0;
+            grid-column: 7/13;
+        }
+
+        .contentSpacing {
+            display: grid;
+            margin: 0;
+            padding: 1rem 0rem;
+
+            grid-template-columns: repeat(12, 1fr);
+            p {
+                align-self: end;
+                grid-column: 1/6;
+                font-size: 1.25rem;
+                max-width: 800px;
+            }
+
+            .collapse-plus {
+                font-size: 1rem;
+                transform: translate(2rem 2rem);
+            }
         }
     }
 </style>
