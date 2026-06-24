@@ -7,7 +7,9 @@
     --color-knop-turquoise: #00A3A2;
     --color-dark: #19181F;
     --color-light: #FFFFFC;
-
+    --padding-desktop: 8rem;
+    --padding-mobile: 1rem;
+    --border-radius:10px;
 }
 
 
@@ -15,6 +17,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 main {
@@ -41,17 +44,32 @@ h2 {
     font-family: var(--font-cousine);
     font-weight: bold;
     padding-bottom: .5rem;
+}
 
+section {
+    padding: var(--padding-mobile);
 }
 
 
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    object-position: center;
+}
+
 @media screen and (min-width:1024px) {
-    .subHeading{
+    .subHeading {
         padding-bottom: 1rem;
     }
 
     h2 {
-        font-size: 6rem;
+        font-size: 5.5rem;
         font-weight: 500;
+    }
+
+    section {
+        padding: var(--padding-desktop);
     }
 }

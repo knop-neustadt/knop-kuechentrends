@@ -1,0 +1,72 @@
+---
+import Image from "astro/components/Image.astro";
+import haeckerImg from "../assets/images/Häcker.jpg";
+import neffImg from "../assets/images/neff.webp";
+import boschImg from "../assets/images/bosch.jpg";
+import ballerinaImg from "../assets/images/ballerina.jpg";
+import smegImg from "../assets/images/smeg.jpg";
+import nobiliaImg from "../assets/images/nobilia.jpg";
+---
+
+<section class="partnersWrapper">
+    <div class="subHeading">Unsere Partner</div>
+
+    <div class="buttonsWrapper">
+        <button class="partnerBtn" data-src={haeckerImg.src}>Häcker</button>
+        <button class="partnerBtn" data-src={smegImg.src}>Smeg</button>
+        <button class="partnerBtn" data-src={boschImg.src}>Bosch</button>
+        <button class="partnerBtn" data-src={neffImg.src}>Neff</button>
+        <button class="partnerBtn" data-src={ballerinaImg.src}>Ballerina</button
+        >
+        <button class="partnerBtn" data-src={nobiliaImg.src}>Nobilia</button>
+    </div>
+
+    <Image
+        src={haeckerImg}
+        alt="Bilder einer Küche des Herstellers Häcker"
+        class="partnerImage"
+        id="partnerImage"
+        widths={[400, 600, 800, 1200]}
+    />
+</section>
+
+<style>
+    .partnersWrapper {
+    }
+
+    .partnerImage {
+        margin-top: 2rem;
+    }
+    .buttonsWrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr;
+        gap: var(--padding-mobile);
+    }
+
+    button {
+        background-color: var(--color-knop-magenta);
+        cursor: pointer;
+        padding: 1rem 0rem;
+        border-radius: var(--border-radius);
+    }
+</style>
+
+<script>
+    const buttons = document.querySelectorAll(".partnerBtn");
+    const imageElement = document.getElementById("partnerImage");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            // Hole den Bildpfad aus dem data-src Attribut des geklickten Buttons
+
+            console.log("Test");
+
+            const newSrc = button.getAttribute("data-src");
+
+            if (newSrc && imageElement) {
+                imageElement.src = newSrc;
+            }
+        });
+    });
+</script>

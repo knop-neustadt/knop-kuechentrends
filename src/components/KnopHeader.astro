@@ -24,7 +24,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         position: fixed;
         top: 0;
         left: 50%;
-        width: calc(100vw - 2rem);
+        width: calc(100vw - (var(--padding-mobile)*2));
         transform: translate(-50%);
         padding: 1rem;
         z-index: 100;
@@ -92,6 +92,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
     @media screen and (min-width: 1024px) {
         nav {
             padding: 1.5rem 2.5rem;
+            width: calc(100vw - (var(--padding-desktop) * 2) + 5rem);
         }
     }
 </style>

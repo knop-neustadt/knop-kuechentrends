@@ -4,12 +4,13 @@ import Image from "astro/components/Image.astro";
 import küche2 from "../assets/images/küche2.jpg";
 ---
 
-<div class="processWrapper">
+<section class="processWrapper" id="process">
     <div class="subHeading">Ablauf</div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
+            <p>1</p>
             <h2>Beratung und Planung</h2>
         </div>
         <div class="collapse-content text-sm">
@@ -32,8 +33,10 @@ import küche2 from "../assets/images/küche2.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
+            <p>2</p>
+
             <h2>Aufmaß des Raumes</h2>
         </div>
         <div class="collapse-content text-sm">
@@ -56,8 +59,10 @@ import küche2 from "../assets/images/küche2.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
+            <p>3</p>
+
             <h2>Lieferung und Montage</h2>
         </div>
         <div class="collapse-content text-sm">
@@ -81,8 +86,9 @@ import küche2 from "../assets/images/küche2.jpg";
     </div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
+            <p>4</p>
             <h2>Entsorgung der alten Küche</h2>
         </div>
         <div class="collapse-content text-sm">
@@ -104,7 +110,7 @@ import küche2 from "../assets/images/küche2.jpg";
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <style>
     .collapse {
@@ -113,15 +119,11 @@ import küche2 from "../assets/images/küche2.jpg";
         font-size: 2rem;
     }
 
-    .collapse-title::after {
-        top: -0rem;
-        right: 0rem;
+    .subHeading{
+            border-bottom: var(--color-dark) 1px solid;
 
     }
 
-    .processWrapper {
-        padding: 1rem;
-    }
     .contentSpacing {
         margin-top: 9rem;
     }
@@ -134,25 +136,47 @@ import küche2 from "../assets/images/küche2.jpg";
         border-radius: 10px;
     }
 
+    .collapse-title {
+        display: flex;
+        font-family: var(--font-alumni);
+        gap: 0.5rem;
+        align-items: center;
+        font-size: 2rem;
+
+        p {
+            width: 1rem;
+            text-align: center;
+        }
+    }
+
     .collapse-title::after {
+        top: 0rem;
         right: 0.5rem;
         font-family: var(--font-alumni);
-        font-weight: 500;
+        font-weight: 400;
     }
 
     @media screen and (min-width: 1024px) {
         .processWrapper {
-            padding: 2.5rem;
             margin: auto;
         }
 
         .collapse {
             font-size: 4rem;
         }
+        .collapse-title {
+            gap: 2rem;
+            font-size: 5.5rem;
+            font-weight: 500;
+            p {
+                width: 2.5rem;
+            }
+        }
 
         .collapse-title::after {
-            top: 2.5rem;
+            top: 0rem;
             inset-inline-end: 2rem !important;
+
         }
 
         .collapseImage {
@@ -166,7 +190,7 @@ import küche2 from "../assets/images/küche2.jpg";
         .contentSpacing {
             display: grid;
             margin: 0;
-            padding: 1rem 0rem;
+            padding: 5rem 0rem;
 
             grid-template-columns: repeat(12, 1fr);
             p {
