@@ -7,9 +7,10 @@
     --color-knop-turquoise: #00A3A2;
     --color-dark: #19181F;
     --color-light: #FFFFFC;
-    --padding-desktop: 8rem;
+    --padding-desktop: 16rem;
     --padding-mobile: 1rem;
     --border-radius:10px;
+    --border-radius-mobile:5px;
 }
 
 

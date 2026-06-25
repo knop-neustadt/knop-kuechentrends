@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import haeckerImg from "../assets/images/Häcker.jpg";
 import neffImg from "../assets/images/neff.webp";
 import boschImg from "../assets/images/bosch.jpg";
@@ -11,62 +11,214 @@ import nobiliaImg from "../assets/images/nobilia.jpg";
 <section class="partnersWrapper">
     <div class="subHeading">Unsere Partner</div>
 
-    <div class="buttonsWrapper">
-        <button class="partnerBtn" data-src={haeckerImg.src}>Häcker</button>
-        <button class="partnerBtn" data-src={smegImg.src}>Smeg</button>
-        <button class="partnerBtn" data-src={boschImg.src}>Bosch</button>
-        <button class="partnerBtn" data-src={neffImg.src}>Neff</button>
-        <button class="partnerBtn" data-src={ballerinaImg.src}>Ballerina</button
-        >
-        <button class="partnerBtn" data-src={nobiliaImg.src}>Nobilia</button>
+    <div class="partnersContent">
+        <div class="buttonsWrapper">
+            <button class="partnerBtn active" data-partner="haecker"
+                >Häcker</button
+            >
+            <button class="partnerBtn" data-partner="smeg">Smeg</button>
+            <button class="partnerBtn" data-partner="bosch">Bosch</button>
+            <button class="partnerBtn" data-partner="neff">Neff</button>
+            <button class="partnerBtn" data-partner="ballerina"
+                >Ballerina</button
+            >
+            <button class="partnerBtn" data-partner="nobilia">Nobilia</button>
+        </div>
+        <div class="imageContainer">
+            <Image
+                src={haeckerImg}
+                alt="Küche von Häcker"
+                class="partnerImage active"
+                data-id="haecker"
+                width={600}
+                widths={[600, 800, 1200]}
+                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+                loading="eager"
+                
+            />
+            <Image
+                src={smegImg}
+                alt="Küche von Smeg"
+                class="partnerImage"
+                data-id="smeg"
+                width={600}
+                widths={[600, 800, 1200]}
+                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+                loading="eager"
+                
+            />
+            <Image
+                src={boschImg}
+                alt="Küche von Bosch"
+                class="partnerImage"
+                data-id="bosch"
+                width={600}
+                widths={[600, 800, 1200]}
+                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+                loading="eager"
+                
+            />
+            <Image
+                src={neffImg}
+                alt="Küche von Neff"
+                class="partnerImage"
+                data-id="neff"
+                width={600}
+                widths={[600, 800, 1200]}
+                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+                loading="eager"
+                
+            />
+            <Image
+                src={ballerinaImg}
+                alt="Küche von Ballerina"
+                class="partnerImage"
+                data-id="ballerina"
+                width={600}
+                widths={[600, 800, 1200]}
+                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+                loading="eager"
+                
+            />
+            <Image
+                src={nobiliaImg}
+                alt="Küche von Nobilia"
+                class="partnerImage"
+                data-id="nobilia"
+                width={600}
+                widths={[600, 800, 1200]}
+                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+                loading="eager"
+                
+            />
+        </div>
+        <div class="partnersDescription">
+            <h2>Häcker</h2>
+            <p>
+                Häcker ist einer der größten und renommiertesten deutschen
+                Hersteller für Küchenmöbel. Mit seinen Produktlinien Systemat
+                und Concept130 bietet die Firma eine große Auswahl an modernen,
+                funktionalen Designs, die sich flexibel an jeden Lebensstil und
+                jede Raumgröße anpassen lassen.
+            </p>
+        </div>
     </div>
-
-    <Image
-        src={haeckerImg}
-        alt="Bilder einer Küche des Herstellers Häcker"
-        class="partnerImage"
-        id="partnerImage"
-        widths={[400, 600, 800, 1200]}
-    />
 </section>
 
 <style>
     .partnersWrapper {
+        padding-top: 5rem;
+        min-height: 100svh;
     }
 
-    .partnerImage {
-        margin-top: 2rem;
+    .partnersContent {
+        min-height: 80svh;
+        margin-top: 1rem;
     }
+
     .buttonsWrapper {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr 1fr;
-        gap: var(--padding-mobile);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding-bottom: var(--padding-mobile);
     }
 
     button {
         background-color: var(--color-knop-magenta);
+        opacity: 0.6;
         cursor: pointer;
-        padding: 1rem 0rem;
-        border-radius: var(--border-radius);
+        padding: 0.5rem 0rem;
+        border-radius: var(--border-radius-mobile);
+        border: none;
+        color: white;
+        transition: opacity 0.2s;
+    }
+
+    button.active {
+        opacity: 1;
+        font-weight: bold;
+    }
+
+    .imageContainer {
+        position: relative;
+    }
+
+    .partnerImage {
+        display: none;
+        margin-top: 2rem;
+        aspect-ratio: 1/1;
+    }
+
+    .partnerImage.active {
+        display: block;
+    }
+
+    h2 {
+        font-size: 5rem;
+        margin-top: 2rem;
+    }
+
+    .partnersDescription {
+        padding-bottom: 2rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .partnersWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: var(--padding-desktop);
+        }
+
+        .partnersContent {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 1fr 4fr;
+            min-height: 30svh;
+            max-height: 60svh;
+        }
+
+        .buttonsWrapper {
+            grid-column: 9/13;
+        }
+
+        .imageContainer {
+            grid-column: 1/7;
+            grid-row: 1/3;
+            width: 100%;
+            height: 100%;
+
+            .partnerImage {
+                margin: 0;
+            }
+        }
+
+        .partnersDescription {
+            grid-column: 9/13;
+        }
     }
 </style>
 
 <script>
     const buttons = document.querySelectorAll(".partnerBtn");
-    const imageElement = document.getElementById("partnerImage");
+    const images = document.querySelectorAll(".partnerImage");
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-            // Hole den Bildpfad aus dem data-src Attribut des geklickten Buttons
+            const targetPartner = button.getAttribute("data-partner");
 
-            console.log("Test");
+            // 1. Aktiven Button-Style umschalten
+            buttons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
 
-            const newSrc = button.getAttribute("data-src");
-
-            if (newSrc && imageElement) {
-                imageElement.src = newSrc;
-            }
+            // 2. Das passende Bild heraussuchen und anzeigen
+            images.forEach((img) => {
+                if (img.getAttribute("data-id") === targetPartner) {
+                    img.classList.add("active");
+                } else {
+                    img.classList.remove("active");
+                }
+            });
         });
     });
 </script>
