@@ -6,109 +6,150 @@ import boschImg from "../assets/images/bosch.jpg";
 import ballerinaImg from "../assets/images/ballerina.jpg";
 import smegImg from "../assets/images/smeg.jpg";
 import nobiliaImg from "../assets/images/nobilia.jpg";
+
+// Zentrale Datenquelle für alle Partner
+const partners = [
+    {
+        id: "haecker",
+        name: "Häcker",
+        imgSrc: haeckerImg,
+        text: "Häcker ist einer der größten und renommiertesten deutschen Hersteller für Küchenmöbel. Mit seinen Produktlinien Systemat und Concept130 bietet die Firma eine große Auswahl an modernen, funktionalen Designs, die sich flexibel an jeden Lebensstil und jede Raumgröße anpassen lassen.",
+        branch: "Möbel",
+        since: "1999",
+        origin: "Verl",
+        segment: "Premium",
+    },
+    {
+        id: "smeg",
+        name: "Smeg",
+        imgSrc: smegImg,
+        text: "Italienisches Design trifft auf modernste Technik: Smeg ist weltbekannt für seine ikonischen Haushaltsgeräte im Retro-Look und professionelle Küchentechnik.",
+        branch: "Elektro",
+        since: "2004",
+        origin: "Italien",
+        segment: "Einstieg",
+    },
+    {
+        id: "bosch",
+        name: "Bosch",
+        imgSrc: boschImg,
+        text: "Bosch steht für verlässliche Qualität und innovative Technik. Die Einbaugeräte fügen sich nahtlos in moderne Küchenkonzepte ein und erleichtern den Alltag spürbar.",
+        branch: "Möbel",
+        since: "1999",
+        origin: "Verl",
+        segment: "Premium",
+    },
+    {
+        id: "neff",
+        name: "Neff",
+        imgSrc: neffImg,
+        text: "Neff baut Küchengeräte für Menschen, die mit Leidenschaft kochen. Einzigartige Features wie die vollversenkbare Slide&Hide® Backofentür zeichnen die Marke aus.",
+        branch: "Möbel",
+        since: "1999",
+        origin: "Verl",
+        segment: "Premium",
+    },
+    {
+        id: "ballerina",
+        name: "Ballerina",
+        imgSrc: ballerinaImg,
+        text: "Ballerina-Küchen stehen für Individualität und handwerkliche Perfektion. Sie bieten innovative Stauraumlösungen und wurden mehrfach für ihre Qualität ausgezeichnet.",
+        branch: "Möbel",
+        since: "1999",
+        origin: "Verl",
+        segment: "Premium",
+    },
+    {
+        id: "nobilia",
+        name: "Nobilia",
+        imgSrc: nobiliaImg,
+        text: "Nobilia ist der Marktführer im deutschen Küchenbau. Das Unternehmen bietet intelligent strukturierte Küchen mit einem hervorragenden Preis-Leistungs-Verhältnis.",
+        branch: "Möbel",
+        since: "1999",
+        origin: "Verl",
+        segment: "Premium",
+    },
+];
 ---
 
 <section class="partnersWrapper">
-    <div class="subHeading">Unsere Partner</div>
+    <div class="subHeading"><p>Unsere Partner</p></div>
 
     <div class="partnersContent">
         <div class="buttonsWrapper">
-            <button class="partnerBtn active" data-partner="haecker"
-                >Häcker</button
-            >
-            <button class="partnerBtn" data-partner="smeg">Smeg</button>
-            <button class="partnerBtn" data-partner="bosch">Bosch</button>
-            <button class="partnerBtn" data-partner="neff">Neff</button>
-            <button class="partnerBtn" data-partner="ballerina"
-                >Ballerina</button
-            >
-            <button class="partnerBtn" data-partner="nobilia">Nobilia</button>
+            {
+                partners.map((partner, index) => (
+                    <button
+                        class={`partnerBtn ${index === 0 ? "active" : ""}`}
+                        data-partner={partner.id}
+                    >
+                        {partner.name}
+                    </button>
+                ))
+            }
         </div>
+
         <div class="imageContainer">
-            <Image
-                src={haeckerImg}
-                alt="Küche von Häcker"
-                class="partnerImage active"
-                data-id="haecker"
-                width={600}
-                widths={[600, 800, 1200]}
-                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
-                loading="eager"
-                
-            />
-            <Image
-                src={smegImg}
-                alt="Küche von Smeg"
-                class="partnerImage"
-                data-id="smeg"
-                width={600}
-                widths={[600, 800, 1200]}
-                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
-                loading="eager"
-                
-            />
-            <Image
-                src={boschImg}
-                alt="Küche von Bosch"
-                class="partnerImage"
-                data-id="bosch"
-                width={600}
-                widths={[600, 800, 1200]}
-                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
-                loading="eager"
-                
-            />
-            <Image
-                src={neffImg}
-                alt="Küche von Neff"
-                class="partnerImage"
-                data-id="neff"
-                width={600}
-                widths={[600, 800, 1200]}
-                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
-                loading="eager"
-                
-            />
-            <Image
-                src={ballerinaImg}
-                alt="Küche von Ballerina"
-                class="partnerImage"
-                data-id="ballerina"
-                width={600}
-                widths={[600, 800, 1200]}
-                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
-                loading="eager"
-                
-            />
-            <Image
-                src={nobiliaImg}
-                alt="Küche von Nobilia"
-                class="partnerImage"
-                data-id="nobilia"
-                width={600}
-                widths={[600, 800, 1200]}
-                sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
-                loading="eager"
-                
-            />
+            {
+                partners.map((partner, index) => (
+                    <Image
+                        src={partner.imgSrc}
+                        alt={`Küche von ${partner.name}`}
+                        class={`partnerImage ${index === 0 ? "active" : ""}`}
+                        data-id={partner.id}
+                        width={600}
+                        widths={[600, 800, 1200]}
+                        sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+                        loading="eager"
+                    />
+                ))
+            }
         </div>
-        <div class="partnersDescription">
-            <h2>Häcker</h2>
-            <p>
-                Häcker ist einer der größten und renommiertesten deutschen
-                Hersteller für Küchenmöbel. Mit seinen Produktlinien Systemat
-                und Concept130 bietet die Firma eine große Auswahl an modernen,
-                funktionalen Designs, die sich flexibel an jeden Lebensstil und
-                jede Raumgröße anpassen lassen.
-            </p>
+
+        <div class="partnersDescriptionWrapper">
+            <div class="descriptionsContainer">
+                {
+                    partners.map((partner, index) => (
+                        <div
+                            class={`partnersDescription ${index === 0 ? "active" : ""}`}
+                            data-description={partner.id}
+                        >
+                            <div class="textBlock">
+                                <h2>{partner.name}</h2>
+                                <p>{partner.text}</p>
+                            </div>
+
+                            <div class="partnersDescriptionInfo">
+                                <div class="infoPoint">
+                                    <p class="infoHeading">Branche</p>
+                                    <p class="infoText">{partner.branch}</p>
+                                </div>
+                                <div class="infoPoint">
+                                    <p class="infoHeading">Seit</p>
+                                    <p class="infoText">{partner.since}</p>
+                                </div>
+                                <div class="infoPoint">
+                                    <p class="infoHeading">Herkunft</p>
+                                    <p class="infoText">{partner.origin}</p>
+                                </div>
+                                <div class="infoPoint">
+                                    <p class="infoHeading">Segment</p>
+                                    <p class="infoText">{partner.segment}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     </div>
 </section>
 
 <style>
     .partnersWrapper {
-        padding-top: 5rem;
+        padding-top: var(--padding-desktop);
         min-height: 100svh;
+        padding-bottom: var(--padding-desktop);
     }
 
     .partnersContent {
@@ -119,24 +160,26 @@ import nobiliaImg from "../assets/images/nobilia.jpg";
     .buttonsWrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding-bottom: var(--padding-mobile);
+        gap: 1px;
+        background-color: #fffffc;
     }
 
     button {
-        background-color: var(--color-knop-magenta);
+        background-color: #fffffc;
+        outline: 1px solid var(--border-color);
         opacity: 0.6;
         cursor: pointer;
         padding: 0.5rem 0rem;
-        border-radius: var(--border-radius-mobile);
-        border: none;
-        color: white;
+        color: var(--color-dark);
         transition: opacity 0.2s;
+        text-align: start;
+        padding-left: 1rem;
     }
 
     button.active {
         opacity: 1;
         font-weight: bold;
+        outline: 1px solid var(--color-knop-magenta);
     }
 
     .imageContainer {
@@ -155,14 +198,75 @@ import nobiliaImg from "../assets/images/nobilia.jpg";
 
     h2 {
         font-size: 5rem;
-        margin-top: 2rem;
+    }
+
+    .descriptionsContainer {
+        position: relative;
+        height: 100%;
+        min-height: 380px; /* Genug Platz für Text + Zusatzinfos, damit nichts springt */
     }
 
     .partnersDescription {
-        padding-bottom: 2rem;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .partnersDescription.active {
+        display: flex;
+    }
+
+    .textBlock {
+        margin: auto;
+    }
+
+    .partnersDescriptionInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 0rem;
+        width: 100%;
+        margin-top: auto; /* Drückt die Zusatzinfos immer fest an den Boden der Beschreibung */
+
+        .infoPoint {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .infoHeading {
+                font-size: 0.75rem;
+                font-weight: 400;
+            }
+
+            .infoText {
+                font-weight: bold;
+            }
+        }
     }
 
     @media screen and (min-width: 1024px) {
+        button {
+            text-align: center;
+            padding-left: 0;
+        }
+
+        .subHeading {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+
+            p {
+                grid-column: 9/13;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+
         .partnersWrapper {
             display: flex;
             flex-direction: column;
@@ -180,6 +284,7 @@ import nobiliaImg from "../assets/images/nobilia.jpg";
 
         .buttonsWrapper {
             grid-column: 9/13;
+            grid-template-columns: repeat(3, 1fr);
         }
 
         .imageContainer {
@@ -193,8 +298,18 @@ import nobiliaImg from "../assets/images/nobilia.jpg";
             }
         }
 
-        .partnersDescription {
+        .partnersDescriptionWrapper {
             grid-column: 9/13;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+        }
+
+        .partnersDescription {
+            transform: translateY(-1rem);
+            h2 {
+                margin: 0;
+            }
         }
     }
 </style>
@@ -202,22 +317,30 @@ import nobiliaImg from "../assets/images/nobilia.jpg";
 <script>
     const buttons = document.querySelectorAll(".partnerBtn");
     const images = document.querySelectorAll(".partnerImage");
+    const descriptions = document.querySelectorAll(".partnersDescription");
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
             const targetPartner = button.getAttribute("data-partner");
 
-            // 1. Aktiven Button-Style umschalten
+            // 1. Buttons umschalten
             buttons.forEach((btn) => btn.classList.remove("active"));
             button.classList.add("active");
 
-            // 2. Das passende Bild heraussuchen und anzeigen
+            // 2. Bilder umschalten
             images.forEach((img) => {
-                if (img.getAttribute("data-id") === targetPartner) {
-                    img.classList.add("active");
-                } else {
-                    img.classList.remove("active");
-                }
+                img.classList.toggle(
+                    "active",
+                    img.getAttribute("data-id") === targetPartner,
+                );
+            });
+
+            // 3. Beschreibungen (inklusive Infoleiste) umschalten
+            descriptions.forEach((desc) => {
+                desc.classList.toggle(
+                    "active",
+                    desc.getAttribute("data-description") === targetPartner,
+                );
             });
         });
     });

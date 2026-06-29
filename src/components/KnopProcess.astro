@@ -5,7 +5,7 @@ import küche2 from "../assets/images/küche2.jpg";
 ---
 
 <section class="processWrapper" id="process">
-    <div class="subHeading">Ablauf</div>
+    <div class="subHeading"><p>Ablauf</p></div>
 
     <div class="collapse collapse-plus bg-base-100">
         <input type="radio" name="my-accordion-1" />
@@ -114,14 +114,9 @@ import küche2 from "../assets/images/küche2.jpg";
 
 <style>
     .collapse {
-        border-bottom: solid 1px var(--color-dark);
+        border-bottom: var(--border-color) 1px solid;
         border-radius: 0;
         font-size: 2rem;
-    }
-
-    .subHeading{
-            border-bottom: var(--color-dark) 1px solid;
-
     }
 
     .contentSpacing {
@@ -133,7 +128,6 @@ import küche2 from "../assets/images/küche2.jpg";
         height: 50%;
         object-fit: cover;
         margin: 1rem 0rem;
-        border-radius: 10px;
     }
 
     .collapse-title {
@@ -176,7 +170,6 @@ import küche2 from "../assets/images/küche2.jpg";
         .collapse-title::after {
             top: 0rem;
             inset-inline-end: 2rem !important;
-
         }
 
         .collapseImage {
@@ -190,7 +183,7 @@ import küche2 from "../assets/images/küche2.jpg";
         .contentSpacing {
             display: grid;
             margin: 0;
-            padding: 5rem 0rem;
+            padding: 2rem 0rem;
 
             grid-template-columns: repeat(12, 1fr);
             p {
