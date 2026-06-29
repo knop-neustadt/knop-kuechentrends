@@ -8,7 +8,7 @@ import küche2 from "../assets/images/küche2.jpg";
     <div class="subHeading"><p>Ablauf</p></div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>1</p>
             <h2>Beratung und Planung</h2>
@@ -33,7 +33,7 @@ import küche2 from "../assets/images/küche2.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>2</p>
 
@@ -59,7 +59,7 @@ import küche2 from "../assets/images/küche2.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>3</p>
 
@@ -86,7 +86,7 @@ import küche2 from "../assets/images/küche2.jpg";
     </div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>4</p>
             <h2>Entsorgung der alten Küche</h2>
@@ -173,11 +173,13 @@ import küche2 from "../assets/images/küche2.jpg";
         }
 
         .collapseImage {
-            width: 100%;
+            width: auto;
             height: auto;
+            max-height: 40vh;
 
             margin: 0;
             grid-column: 7/13;
+            justify-self: end;
         }
 
         .contentSpacing {

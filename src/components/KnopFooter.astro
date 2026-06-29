@@ -1,0 +1,122 @@
+---
+import Image from "astro/components/Image.astro";
+
+import logoWhite from "../assets/images/KK_Logo_weiß.png";
+import Link_arrow from "../assets/svgs/link_arrow.svg";
+import Mail from "../assets/svgs/Mail.svg";
+import Phone from "../assets/svgs/Phone.svg";
+import Location from "../assets/svgs/Location.svg";
+---
+
+<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+    <aside>
+        <Image
+            src={logoWhite}
+            alt="Logo von Knop Küchentrends Neustadt"
+            width={64}
+            loading={"eager"}
+        />
+        <p>
+            Knop Neustadt GmbH
+            <br />
+            Ihr Partner für Küchentrends.
+        </p>
+    </aside>
+    <nav>
+        <h6 class="footer-title">Kontakt</h6>
+        <div class="footerLinkWrapper">
+            <Phone width={20} height={20} class="linkArrow" />
+
+            <a href="tel:+49456139790" class="link link-hover">04561/39790</a>
+        </div>
+        <div class="footerLinkWrapper">
+            <Mail width={20} height={20} class="linkArrow" />
+
+            <a href="mailto:info@knop-neustadt.de" class="link link-hover"
+                >Info@knop-neustadt.de</a
+            >
+        </div>
+        <div class="footerLinkWrapper">
+            <Location width={20} height={20} class="linkArrow" />
+
+            <p>Wagrienring 12-14</p>
+        </div>
+    </nav>
+    <nav>
+        <h6 class="footer-title">Socials</h6>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a href="" class="link link-hover">Instagram</a>
+        </div>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a href="" class="link link-hover">Facebook</a>
+        </div>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a href="" class="link link-hover">YouTube</a>
+        </div>
+    </nav>
+    <nav>
+        <h6 class="footer-title">Legal</h6>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a href="" class="link link-hover">AGB's</a>
+        </div>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a href="" class="link link-hover">Impressum</a>
+        </div>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a href="" class="link link-hover">Datenschutz</a>
+        </div>
+    </nav>
+</footer>
+
+<style>
+    .footer {
+        padding: var(--padding-mobile);
+        color: var(--color-light);
+        background-color: var(--color-dark);
+
+        font-size: 1rem;
+
+        img {
+            width: 64px;
+        }
+
+        h6 {
+            font-size: 1.5rem;
+            color: var(--color-light);
+            margin-bottom: 0.5rem;
+            opacity: 1;
+            font-weight: 700;
+        }
+
+        .footerLinkWrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .footer {
+            padding: var(--padding-desktop);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .linkArrow {
+            transition: transform 0.1s ease-in-out; /* Macht die Bewegung smooth */
+            will-change: transform; /* Optimiert die Performance der Animation */
+        }
+
+        /* 2. Die Animation triggern, sobald der Wrapper gehovert wird */
+        .footerLinkWrapper:hover .linkArrow {
+            /* Bewegt den Pfeil um 4 Pixel nach oben (Y-Achse) */
+            transform: translateY(-4px);
+        }
+    }
+</style>
