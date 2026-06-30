@@ -1,15 +1,19 @@
 ---
-import {Font} from "astro:assets";
+import { Font } from "astro:assets";
 import "../styles/global.css";
 import { describe } from "astro:schema";
 
-interface Props{
-	title:string;
-	description?:string;
-	image?:string;
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
 }
 
-const {title = "Küchentrends Knop Neustadt", description = "Küchentrends der Firma Knop in Neustadt", image = "/images/welcomePicture.webp"} = Astro.props;
+const {
+	title = "Küchentrends Knop Neustadt",
+	description = "Küchentrends der Firma Knop in Neustadt",
+	image = "/images/welcomePicture.webp",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,12 +23,19 @@ const {title = "Küchentrends Knop Neustadt", description = "Küchentrends der F
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="description" content={description}>
+		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
-		<meta property="og:image" content={image}>
+		<meta property="og:image" content={image} />
 		<title>{title}</title>
-		<Font cssVariable="--font-cousine" />
-		<Font cssVariable="--font-alumni" />
+		<Font cssVariable="--font-cousine" preload/>
+		<Font cssVariable="--font-alumni" preload/>
+		<link
+			rel="preload"
+			href="/fonts/meine-font.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body>
 		<main>

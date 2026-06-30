@@ -1,8 +1,14 @@
 <section class="welcomeWrapper">
     <div class="stylediv"></div>
     <div class="welcomeTextWrapper">
-        <p class="subHeading">Küchentrends</p>
-        <h1>Ihr Partner <span>für die neue Küche</span> in Neustadt!</h1>
+        <div class="subHeadingWrapper">
+            <p class="subHeading">Küchentrends</p>
+        </div>
+        <div class="headingWrapper">
+            <h1 class="heading">
+                Ihr Partner <span>für die neue Küche</span> in Neustadt!
+            </h1>
+        </div>
 
         <p class="welcomeParagraph">
             Knop Neustadt schafft Küchen, die leben. Mit handwerklicher
@@ -54,8 +60,11 @@
         font-size: 3.5rem;
         font-weight: 600;
         line-height: 3rem;
-        margin-bottom: 5rem;
         text-transform: uppercase;
+    }
+
+    .headingWrapper {
+        margin-bottom: 5rem;
     }
 
     .welcomeButtonsWrapper {
@@ -80,6 +89,15 @@
         }
     }
 
+    .heading {
+        opacity: 0;
+    }
+
+    .headingWrapper,
+    .subHeadingWrapper {
+        overflow: hidden;
+    }
+
     @media screen and (min-width: 1024px) {
         .welcomeWrapper {
             padding: var(--padding-desktop);
@@ -96,8 +114,11 @@
         }
 
         h1 {
-            line-height: 7rem;
+            line-height: 0.85;
             font-size: 8rem;
+        }
+
+        .headingWrapper {
             margin-bottom: 7.5rem;
         }
 
@@ -113,3 +134,48 @@
         }
     }
 </style>
+
+<script>
+    import { templateLiteral } from "astro:schema";
+    import { gsap } from "gsap";
+    import { SplitText } from "gsap/SplitText";
+    gsap.registerPlugin(SplitText);
+
+    const mainHeading = document.querySelector(".heading");
+    const subHeading = document.querySelector(".subHeading");
+    const welcomeParagraph = document.querySelector(".welcomeParagraph");
+
+    gsap.set(mainHeading, { opacity: 1 });
+
+    const splitHeading = new SplitText(mainHeading, {
+        type: "lines, words",
+        mask: "lines",
+        wordsClass: "headingWord",
+    });
+    const splitSubHeading = new SplitText(subHeading, { type: "words" });
+
+    const splitWelcomeParagraph = new SplitText(welcomeParagraph, {
+        type: "lines",
+        mask:"lines"
+    });
+
+    const tl = gsap.timeline();
+
+    tl.from(splitHeading.lines, {
+        y: 80,
+        stagger: 0.09,
+        duration: 0.8,
+        opacity: 0,
+        transformOrigin: "center top",
+        ease: "power2.out",
+    });
+
+    tl.from(splitWelcomeParagraph.lines, {
+        y: 80,
+        stagger: 0.09,
+        duration: 0.8,
+        opacity: 0,
+        transformOrigin: "center top",
+        ease: "power2.out",
+    });
+</script>
