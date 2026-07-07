@@ -2,6 +2,8 @@
 import Image from "astro/components/Image.astro";
 
 import küche2 from "../assets/images/küche2.jpg";
+import beratung from "../assets/images/Beratung.jpg";
+import aufmass from "../assets/images/Aufmaß.jpg";
 ---
 
 <section class="processWrapper" id="process">
@@ -16,18 +18,20 @@ import küche2 from "../assets/images/küche2.jpg";
         <div class="collapse-content text-sm">
             <div class="contentSpacing">
                 <p>
-                    Ob kleine Nische, oder große Küche im Landhausstil.
-                    Natürlich kümmern wir uns auch um den Abbau und die
-                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
-                    eine Kooperation mit dem Zweckverband Ostholstein ist die
-                    Entsorgung für Sie sogar kostenlos!
+                    Ob kompakte Single-Küche, behaglich-rustikaler Landhausstil
+                    oder grifflose Design-Lösung: In unserem fast 1.000 m&sup2;
+                    großen Küchenstudio im Wagrienring bringen wir Ihre Ideen
+                    zum Leben. Wir nehmen uns Zeit für Sie und planen Ihre
+                    Traumküche bis ins kleinste Detail mittels modernster
+                    digitaler 3D-Visualisierung.
                 </p>
 
                 <Image
-                    src={küche2}
+                    src={beratung}
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
                     widths={[400, 600, 800, 1200]}
+                    loading="eager"
                 />
             </div>
         </div>
@@ -42,18 +46,20 @@ import küche2 from "../assets/images/küche2.jpg";
         <div class="collapse-content text-sm">
             <div class="contentSpacing">
                 <p>
-                    Ob kleine Nische, oder große Küche im Landhausstil.
-                    Natürlich kümmern wir uns auch um den Abbau und die
-                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
-                    eine Kooperation mit dem Zweckverband Ostholstein ist die
-                    Entsorgung für Sie sogar kostenlos!
+                    Damit am Tag der Montage alles perfekt sitzt, überlassen wir
+                    nichts dem Zufall. Unsere Profis kommen direkt zu Ihnen nach
+                    Hause in Neustadt und Umgebung, um den Raum zentimeter- und
+                    winkelgenau zu vermessen. Dabei prüfen wir nicht nur die
+                    reinen Wandmaße, sondern erfassen auch alle Anschlüsse für
+                    Wasser, Abwasser und Strom sowie Fenster- und Türöffnungen.
                 </p>
 
                 <Image
-                    src={küche2}
+                    src={aufmass}
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
                     widths={[400, 600, 800, 1200]}
+                    loading="eager"
                 />
             </div>
         </div>
@@ -68,11 +74,13 @@ import küche2 from "../assets/images/küche2.jpg";
         <div class="collapse-content text-sm">
             <div class="contentSpacing">
                 <p>
-                    Ob kleine Nische, oder große Küche im Landhausstil.
-                    Natürlich kümmern wir uns auch um den Abbau und die
-                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
-                    eine Kooperation mit dem Zweckverband Ostholstein ist die
-                    Entsorgung für Sie sogar kostenlos!
+                    Die Montage einer Küche erfordert echte Handwerkskunst.
+                    Deshalb schicken wir keine Subunternehmer, sondern unsere
+                    eigenen, meistergeführten Teams zu Ihnen. Von der
+                    millimetergenauen Ausrichtung der Schränke über den präzisen
+                    Einpass von Arbeitsplatten bis hin zum fachgerechten
+                    Anschluss modernster Hightech-Elektrogeräte: Wir montieren
+                    sauber, pünktlich und bezugsfertig.
                 </p>
 
                 <Image
@@ -80,6 +88,7 @@ import küche2 from "../assets/images/küche2.jpg";
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
                     widths={[400, 600, 800, 1200]}
+                    loading="eager"
                 />
             </div>
         </div>
@@ -106,6 +115,7 @@ import küche2 from "../assets/images/küche2.jpg";
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
                     widths={[400, 600, 800, 1200]}
+                    loading="eager"
                 />
             </div>
         </div>
@@ -150,6 +160,14 @@ import küche2 from "../assets/images/küche2.jpg";
         font-weight: 400;
     }
 
+    .processWrapper {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+        .collapse {
+            background-color: var(--color-dark);
+        }
+    }
+
     @media screen and (min-width: 1024px) {
         .processWrapper {
             margin: auto;
@@ -175,8 +193,7 @@ import küche2 from "../assets/images/küche2.jpg";
         .collapseImage {
             width: auto;
             height: auto;
-            max-height: 40vh;
-
+            max-height: 50vh;
             margin: 0;
             grid-column: 7/13;
             justify-self: end;
@@ -191,7 +208,7 @@ import küche2 from "../assets/images/küche2.jpg";
             p {
                 align-self: end;
                 grid-column: 1/6;
-                font-size: 1.25rem;
+                font-size: 1.5rem;
                 max-width: 800px;
             }
 

@@ -100,7 +100,7 @@ const partners = [
                         width={600}
                         widths={[600, 800, 1200]}
                         sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
-                        loading="eager"
+                        loading="lazy"
                     />
                 ))
             }
@@ -118,24 +118,33 @@ const partners = [
                                 <h2>{partner.name}</h2>
                                 <p>{partner.text}</p>
                             </div>
+                        </div>
+                    ))
+                }
+            </div>
 
-                            <div class="partnersDescriptionInfo">
-                                <div class="infoPoint">
-                                    <p class="infoHeading">Branche</p>
-                                    <p class="infoText">{partner.branch}</p>
-                                </div>
-                                <div class="infoPoint">
-                                    <p class="infoHeading">Seit</p>
-                                    <p class="infoText">{partner.since}</p>
-                                </div>
-                                <div class="infoPoint">
-                                    <p class="infoHeading">Herkunft</p>
-                                    <p class="infoText">{partner.origin}</p>
-                                </div>
-                                <div class="infoPoint">
-                                    <p class="infoHeading">Segment</p>
-                                    <p class="infoText">{partner.segment}</p>
-                                </div>
+            <div class="infoLeisteContainer">
+                {
+                    partners.map((partner, index) => (
+                        <div
+                            class={`partnersDescriptionInfo ${index === 0 ? "active" : ""}`}
+                            data-info={partner.id}
+                        >
+                            <div class="infoPoint">
+                                <p class="infoHeading">Branche</p>
+                                <p class="infoText">{partner.branch}</p>
+                            </div>
+                            <div class="infoPoint">
+                                <p class="infoHeading">Seit</p>
+                                <p class="infoText">{partner.since}</p>
+                            </div>
+                            <div class="infoPoint">
+                                <p class="infoHeading">Herkunft</p>
+                                <p class="infoText">{partner.origin}</p>
+                            </div>
+                            <div class="infoPoint">
+                                <p class="infoHeading">Segment</p>
+                                <p class="infoText">{partner.segment}</p>
                             </div>
                         </div>
                     ))
@@ -184,16 +193,24 @@ const partners = [
 
     .imageContainer {
         position: relative;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 100%;
     }
 
     .partnerImage {
-        display: none;
+        grid-row: 1;
+        grid-column: 1;
+        height: 100%;
+        width: 100%;
         margin-top: 2rem;
         aspect-ratio: 1/1;
+        opacity: 0;
+        pointer-events: none;
     }
 
     .partnerImage.active {
-        display: block;
+        pointer-events: auto;
     }
 
     h2 {
@@ -204,10 +221,14 @@ const partners = [
         position: relative;
         height: 100%;
         min-height: 380px; /* Genug Platz für Text + Zusatzinfos, damit nichts springt */
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
     .partnersDescription {
-        display: none;
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
@@ -215,28 +236,36 @@ const partners = [
         position: absolute;
         top: 0;
         left: 0;
+        opacity: 0;
     }
 
     .partnersDescription.active {
         display: flex;
+        opacity: 1;
     }
 
     .textBlock {
         margin: auto;
     }
 
-    .partnersDescriptionInfo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .infoLeisteContainer {
+        display: grid;
+        grid-template-rows: 1fr;
         border-top: 1px solid var(--border-color);
         border-bottom: 1px solid var(--border-color);
+    }
+
+    .partnersDescriptionInfo {
+        opacity: 0;
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        justify-content: space-between;
         padding: 1rem 0rem;
         width: 100%;
-        margin-top: auto; /* Drückt die Zusatzinfos immer fest an den Boden der Beschreibung */
+        text-align: center;
 
         .infoPoint {
-            flex: 1;
             display: flex;
             flex-direction: column;
 
@@ -248,7 +277,19 @@ const partners = [
             .infoText {
                 font-weight: bold;
             }
+
+            p {
+                font-size: 1rem;
+            }
         }
+    }
+
+    .partnersDescriptionInfo.active {
+        opacity: 1;
+    }
+
+    p {
+        font-size: 1.25rem;
     }
 
     @media screen and (min-width: 1024px) {
@@ -278,8 +319,9 @@ const partners = [
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-template-rows: 1fr 4fr;
-            min-height: 30svh;
-            max-height: 60svh;
+            min-height: 0;
+            height: 60svh;
+            margin-top: 0;
         }
 
         .buttonsWrapper {
@@ -298,6 +340,11 @@ const partners = [
             }
         }
 
+        .partnerImage {
+            margin: 0;
+            object-position: center center;
+        }
+
         .partnersDescriptionWrapper {
             grid-column: 9/13;
             display: flex;
@@ -312,38 +359,128 @@ const partners = [
             }
         }
 
+        .partnerBtn {
+            transition: all 0.2s ease-in-out;
+        }
 
+        .partnerBtn:hover {
+            outline-color: var(--color-knop-magenta);
+        }
+
+        .partnersDescriptionInfo {
+            text-align: start;
+
+            .infoPoint {
+                flex: 1;
+            }
+        }
     }
 </style>
 
 <script>
+    import { gsap } from "gsap";
+
     const buttons = document.querySelectorAll(".partnerBtn");
-    const images = document.querySelectorAll(".partnerImage");
-    const descriptions = document.querySelectorAll(".partnersDescription");
+    let currentPartnerId = document
+        .querySelector(".partnerBtn.active")
+        ?.getAttribute("data-partner");
+
+    // Initialen Zustand für das ALLERERSTE Element setzen, damit es beim Laden sichtbar ist
+    gsap.set(
+        [
+            ".partnerImage.active",
+            ".partnersDescription.active",
+            ".partnersDescriptionInfo.active",
+        ],
+        {
+            opacity: 1,
+            y: 0,
+        },
+    );
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
             const targetPartner = button.getAttribute("data-partner");
 
-            // 1. Buttons umschalten
+            if (targetPartner === currentPartnerId) return;
+            currentPartnerId = targetPartner;
+
             buttons.forEach((btn) => btn.classList.remove("active"));
             button.classList.add("active");
 
-            // 2. Bilder umschalten
-            images.forEach((img) => {
-                img.classList.toggle(
-                    "active",
-                    img.getAttribute("data-id") === targetPartner,
-                );
-            });
+            const activeImg = document.querySelector(".partnerImage.active");
+            const activeDesc = document.querySelector(
+                ".partnersDescription.active",
+            );
+            const activeInfo = document.querySelector(
+                ".partnersDescriptionInfo.active",
+            );
 
-            // 3. Beschreibungen (inklusive Infoleiste) umschalten
-            descriptions.forEach((desc) => {
-                desc.classList.toggle(
-                    "active",
-                    desc.getAttribute("data-description") === targetPartner,
+            const nextImg = document.querySelector(
+                `.partnerImage[data-id="${targetPartner}"]`,
+            );
+            const nextDesc = document.querySelector(
+                `.partnersDescription[data-description="${targetPartner}"]`,
+            );
+            const nextInfo = document.querySelector(
+                `.partnersDescriptionInfo[data-info="${targetPartner}"]`,
+            );
+
+            const tl = gsap.timeline();
+
+            // 1. Altes Zeug ausfaden
+            if (activeImg && activeDesc && activeInfo) {
+                tl.to([activeImg, activeDesc, activeInfo], {
+                    opacity: 0,
+                    y: -15,
+                    duration: 0.2,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        // Klassen erst entfernen, WENN die Animation vorbei ist
+                        activeImg.classList.remove("active");
+                        activeDesc.classList.remove("active");
+                        activeInfo.classList.remove("active");
+                    },
+                });
+            }
+
+            // 2. Neues Zeug einfaden
+            if (nextImg && nextDesc && nextInfo) {
+                // WICHTIG: Wir zwingen GSAP DIREKT dazu, die Elemente unsichtbar auf Startposition zu setzen,
+                // BEVOR wir die Klassen hinzufügen. Das verhindert das Aufblitzen komplett!
+                gsap.set([nextImg, nextDesc, nextInfo], {
+                    y: 15,
+                    opacity: 0,
+                });
+
+                nextImg.classList.add("active");
+                nextDesc.classList.add("active");
+                nextInfo.classList.add("active");
+
+                tl.to([nextImg, nextDesc, nextInfo], {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.35,
+                    ease: "power2.out",
+                });
+
+                // Micro-Animation für innere Texte
+                const textElements = nextDesc.querySelectorAll("h2, p");
+                const infoPoints = nextInfo.querySelectorAll(".infoPoint");
+
+                tl.fromTo(
+                    [textElements, infoPoints],
+                    { opacity: 0, y: 8 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.25,
+                        stagger: 0.04,
+                        ease: "power1.out",
+                    },
+                    "-=0.2",
                 );
-            });
+            }
         });
     });
 </script>
