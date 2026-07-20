@@ -2,15 +2,17 @@
 import Image from "astro/components/Image.astro";
 
 import küche2 from "../assets/images/küche2.jpg";
-import beratung from "../assets/images/Beratung.jpg";
+import kuecheLandhaus from "../assets/images/Landhaus Küche.jpg";
 import aufmass from "../assets/images/Aufmaß.jpg";
+import arbeistplatten from "../assets/images/Arbeitsplatten.jpg";
+import ecki from "../assets/images/ecki.jpg";
 ---
 
 <section class="processWrapper" id="process">
     <div class="subHeading"><p>Ablauf</p></div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" checked />
         <div class="collapse-title font-semibold">
             <p>1</p>
             <h2>Beratung und Planung</h2>
@@ -27,7 +29,7 @@ import aufmass from "../assets/images/Aufmaß.jpg";
                 </p>
 
                 <Image
-                    src={beratung}
+                    src={arbeistplatten}
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
                     widths={[400, 600, 800, 1200]}
@@ -37,7 +39,7 @@ import aufmass from "../assets/images/Aufmaß.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>2</p>
 
@@ -65,10 +67,9 @@ import aufmass from "../assets/images/Aufmaß.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>3</p>
-
             <h2>Lieferung und Montage</h2>
         </div>
         <div class="collapse-content text-sm">
@@ -84,7 +85,7 @@ import aufmass from "../assets/images/Aufmaß.jpg";
                 </p>
 
                 <Image
-                    src={küche2}
+                    src={ecki}
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
                     widths={[400, 600, 800, 1200]}
@@ -93,9 +94,8 @@ import aufmass from "../assets/images/Aufmaß.jpg";
             </div>
         </div>
     </div>
-
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="radio" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>4</p>
             <h2>Entsorgung der alten Küche</h2>
@@ -138,6 +138,11 @@ import aufmass from "../assets/images/Aufmaß.jpg";
         height: 50%;
         object-fit: cover;
         margin: 1rem 0rem;
+        aspect-ratio: 1/1;
+    }
+
+    .collapse:nth-of-type(4) .collapseImage {
+        object-position: top;
     }
 
     .collapse-title {
@@ -163,6 +168,7 @@ import aufmass from "../assets/images/Aufmaß.jpg";
     .processWrapper {
         background-color: var(--color-dark);
         color: var(--color-light);
+        min-height: 100vh;
         .collapse {
             background-color: var(--color-dark);
         }

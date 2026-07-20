@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import haeckerImg from "../assets/images/Häcker.jpg";
-import neffImg from "../assets/images/neff.webp";
-import boschImg from "../assets/images/bosch.jpg";
+import neffImg from "../assets/images/neff.jpg";
+import boschImg from "../assets/images/bosch.webp";
 import ballerinaImg from "../assets/images/ballerina.jpg";
 import smegImg from "../assets/images/smeg.jpg";
 import nobiliaImg from "../assets/images/nobilia.jpg";
@@ -233,10 +233,12 @@ const partners = [
         justify-content: space-between;
         height: 100%;
         width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
         opacity: 0;
+
+        p{
+            padding-bottom: 1rem ;
+            font-size: 1rem;
+        }
     }
 
     .partnersDescription.active {
@@ -370,9 +372,7 @@ const partners = [
         .partnersDescriptionInfo {
             text-align: start;
 
-            .infoPoint {
-                flex: 1;
-            }
+
         }
     }
 </style>

@@ -1,7 +1,6 @@
 ---
 import { Font } from "astro:assets";
 import "../styles/global.css";
-import { describe } from "astro:schema";
 
 interface Props {
 	title: string;
@@ -14,6 +13,8 @@ const {
 	description = "Küchentrends der Firma Knop in Neustadt",
 	image = "/images/welcomePicture.webp",
 } = Astro.props;
+
+// Initialize Lenis
 ---
 
 <!doctype html>
@@ -27,8 +28,8 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image} />
 		<title>{title}</title>
-		<Font cssVariable="--font-cousine" preload/>
-		<Font cssVariable="--font-alumni" preload/>
+		<Font cssVariable="--font-cousine" preload />
+		<Font cssVariable="--font-alumni" preload />
 		<link
 			rel="preload"
 			href="/fonts/meine-font.woff2"
@@ -43,3 +44,16 @@ const {
 		</main>
 	</body>
 </html>
+
+<script>
+	import Lenis from "lenis";
+	const lenis = new Lenis();
+
+	// Use requestAnimationFrame to continuously update the scroll
+	function raf(time) {
+		lenis.raf(time);
+		requestAnimationFrame(raf);
+	}
+
+	requestAnimationFrame(raf);
+</script>
