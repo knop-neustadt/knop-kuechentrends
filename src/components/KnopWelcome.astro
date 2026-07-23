@@ -10,15 +10,15 @@
             </h1>
         </div>
 
-        <p class="welcomeParagraph">
-            Knop Neustadt schafft Küchen, die leben. Mit handwerklicher
-            Präzision und modernem Design entstehen Räume, in denen Qualität
-            spürbar wird.
-        </p>
-
-        <div class="welcomeButtonsWrapper">
-            <a href="/galerie">Galerie</a>
-            <a href="#kontakt">Kontakt</a>
+        <div class="ctaWrapper">
+            <p class="welcomeParagraph">
+                Knop Neustadt schafft Küchen, die leben. Mit handwerklicher
+                Präzision und modernem Design entstehen Räume, in denen Qualität
+                spürbar wird.
+            </p>
+            <div class="welcomeButtonsWrapper">
+                <a href="#contactSection" class="linkBtn">Kontakt</a>
+            </div>
         </div>
     </div>
 </section>
@@ -71,17 +71,17 @@
         display: flex;
         align-items: center;
         font-weight: 600;
-        transform: translate(-0.5rem);
         margin-top: 1rem;
         a {
             color: var(--color-light);
             cursor: pointer;
-            margin-right: 1rem;
             font-size: 1.25rem;
-            padding: 0.5rem;
+            padding: 1.25rem;
+            width: 100%;
             transition: all ease-in-out 0.1s;
-            text-decoration: underline;
-
+            background-color: var(--color-knop-magenta);
+            color: var(--color-light);
+            text-align: center;
             &:hover {
                 background-color: var(--color-light);
                 color: var(--color-dark);
@@ -134,11 +134,14 @@
                 rgba(0, 0, 0, 0) 100%
             );
         }
+
+        .ctaWrapper {
+            width: 600px;
+        }
     }
 </style>
 
 <script>
-    import { templateLiteral } from "astro:schema";
     import { gsap } from "gsap";
     import { SplitText } from "gsap/SplitText";
     gsap.registerPlugin(SplitText);
@@ -146,12 +149,12 @@
     const mainHeading = document.querySelector(".heading");
     const subHeading = document.querySelector(".subHeading");
     const welcomeParagraph = document.querySelector(".welcomeParagraph");
-    const welcomeButtons = document.querySelector(".welcomeButtonsWrapper");
+    const welcomeButton = document.querySelector(".welcomeButtonsWrapper");
 
     gsap.set(mainHeading, { opacity: 1 });
     gsap.set(subHeading, { opacity: 1 });
     gsap.set(welcomeParagraph, { opacity: 1 });
-    gsap.set(welcomeButtons, { opacity: 1 });
+    gsap.set(welcomeButton, { opacity: 1 });
 
     const splitHeading = new SplitText(mainHeading, {
         type: "lines, words",
@@ -159,8 +162,6 @@
         wordsClass: "headingWord",
     });
     const splitSubHeading = new SplitText(subHeading, { type: "words" });
-    const splitButtons = new SplitText(welcomeButtons, { type: "lines" });
-
     const splitWelcomeParagraph = new SplitText(welcomeParagraph, {
         type: "lines",
         mask: "lines",
@@ -188,14 +189,14 @@
 
     tl.from(splitWelcomeParagraph.lines, {
         y: 20,
-        stagger:0.1,
+        stagger: 0.1,
         duration: 0.3,
         opacity: 0,
         transformOrigin: "center top",
         ease: "power2.out",
     });
 
-    tl.from(splitButtons.lines, {
+    tl.from(welcomeButton, {
         y: 10,
         duration: 0.3,
         opacity: 0,

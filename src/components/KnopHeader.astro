@@ -11,7 +11,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             <Image
                 src={logoWhite}
                 alt="Logo von Knop Küchentrends Neustadt"
-                width={50}
+                width={300}
                 loading={"eager"}
             />
         </a>
@@ -54,10 +54,9 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
     </div>
 
     <ul class="nav-links">
-        <li><a href="#partners" class="nav-link">Hersteller</a></li>
-        <li><a href="#process" class="nav-link">Ablauf</a></li>
-        <li><a href="#team" class="nav-link">Team</a></li>
-        <li><a href="#contact" class="nav-link">Kontakt</a></li>
+        <li><a href="/#partnersWrapper" class="nav-link">Hersteller</a></li>
+        <li><a href="/#processWrapper" class="nav-link">Ablauf</a></li>
+        <li><a href="/#contactWrapper" class="nav-link">Kontakt</a></li>
     </ul>
 </nav>
 
@@ -170,12 +169,10 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            height: 6svh;
             padding: 1.5rem 2.5rem;
             width: calc(100vw - (var(--padding-desktop) * 2) + 5rem);
             top: 1.25rem;
             overflow: visible;
-            height: 5svh;
             padding: 0 1rem;
         }
 
@@ -223,7 +220,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--color-light);
+            background-color: var(--color-knop-magenta);
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.3s ease-in-out;
@@ -232,6 +229,11 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         .nav-links a:hover::after {
             transform: scaleX(1);
             transform-origin: left;
+        }
+    }
+    @media screen and (min-width: 1260px) {
+        nav {
+            height: 5svh;
         }
     }
 </style>

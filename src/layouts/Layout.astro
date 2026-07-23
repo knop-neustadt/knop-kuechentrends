@@ -6,15 +6,16 @@ interface Props {
 	title: string;
 	description?: string;
 	image?: string;
+	mainClass?: string;
 }
 
 const {
-	title = "Küchentrends Knop Neustadt",
+	title = "",
 	description = "Küchentrends der Firma Knop in Neustadt",
 	image = "/images/welcomePicture.webp",
+	mainClass="",
 } = Astro.props;
 
-// Initialize Lenis
 ---
 
 <!doctype html>
@@ -22,8 +23,7 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image} />
@@ -39,7 +39,7 @@ const {
 		/>
 	</head>
 	<body>
-		<main>
+		<main class={mainClass}>
 			<slot />
 		</main>
 	</body>

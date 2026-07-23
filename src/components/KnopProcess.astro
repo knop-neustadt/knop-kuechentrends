@@ -8,11 +8,11 @@ import arbeistplatten from "../assets/images/Arbeitsplatten.jpg";
 import ecki from "../assets/images/ecki.jpg";
 ---
 
-<section class="processWrapper" id="process">
+<section class="processWrapper" id="processWrapper">
     <div class="subHeading"><p>Ablauf</p></div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" checked />
+        <input type="checkbox" name="my-accordion-1" checked />
         <div class="collapse-title font-semibold">
             <p>1</p>
             <h2>Beratung und Planung</h2>
@@ -32,14 +32,15 @@ import ecki from "../assets/images/ecki.jpg";
                     src={arbeistplatten}
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
-                    widths={[400, 600, 800, 1200]}
+                    widths={[240, 540, 1400]}
+                    sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
                     loading="eager"
                 />
             </div>
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>2</p>
 
@@ -67,7 +68,7 @@ import ecki from "../assets/images/ecki.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>3</p>
             <h2>Lieferung und Montage</h2>
@@ -88,14 +89,16 @@ import ecki from "../assets/images/ecki.jpg";
                     src={ecki}
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
-                    widths={[400, 600, 800, 1200]}
+                    widths={[240, 540, 1000]}
+                    sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1000px"
                     loading="eager"
+                    inferSize
                 />
             </div>
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="radio" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" />
         <div class="collapse-title font-semibold">
             <p>4</p>
             <h2>Entsorgung der alten Küche</h2>
@@ -111,10 +114,11 @@ import ecki from "../assets/images/ecki.jpg";
                 </p>
 
                 <Image
-                    src={küche2}
+                    src={kuecheLandhaus}
                     alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
                     class="collapseImage"
-                    widths={[400, 600, 800, 1200]}
+                    widths={[240, 540, 1400]}
+                    sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
                     loading="eager"
                 />
             </div>
@@ -124,7 +128,7 @@ import ecki from "../assets/images/ecki.jpg";
 
 <style>
     .collapse {
-        border-bottom: var(--border-color) 1px solid;
+        border-bottom: var(--color-knop-magenta) 1px solid;
         border-radius: 0;
         font-size: 2rem;
     }
@@ -169,15 +173,18 @@ import ecki from "../assets/images/ecki.jpg";
         background-color: var(--color-dark);
         color: var(--color-light);
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
         .collapse {
             background-color: var(--color-dark);
         }
+    
+    
     }
 
     @media screen and (min-width: 1024px) {
-        .processWrapper {
-            margin: auto;
-        }
 
         .collapse {
             font-size: 4rem;

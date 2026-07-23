@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import KnopHeader from "../components/KnopHeader.astro";
+import KnopFooter from "../components/KnopFooter.astro";
+---
+
+<Layout title="Redirect" mainClass="mainRedirect">
+    <KnopHeader />
+
+    <section class="redirectSection">
+        <div class="redirectWrapper">
+            <h1>Vielen Dank für Ihre Anfrage!</h1>
+            <p>Wir werden uns schnellstmöglich um ihr Anliegen kümmern.</p>
+            <a href="/">Zurück zur Startseite</a>
+        </div>
+    </section>
+
+    <KnopFooter />
+</Layout>
+
+<style>
+    :global(.mainRedirect) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+    }
+    .redirectWrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .redirectSection {
+        padding: 0;
+    }
+    h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    p {
+        margin-bottom: 1rem;
+    }
+    a {
+        text-decoration: underline;
+    }
+    @media screen and (min-width: 1024px) {
+        .redirectWrapper {
+            height: 80vh;
+        }
+    }
+</style>

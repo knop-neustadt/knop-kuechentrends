@@ -17,11 +17,19 @@
 }
 
 
+html{
+        scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--color-light);
+    color: var(--color-dark);
 }
 
 main {
@@ -50,15 +58,13 @@ h2 {
     padding-bottom: .5rem;
 
     p {
-        border-bottom: var(--border-color) 1px solid;
+        border-bottom: var(--color-knop-magenta) 1px solid;
 
     }
 }
 
 section {
     padding: var(--padding-mobile);
-    border-bottom: var(--color-dark) 1px solid;
-    border-top: var(--color-dark) 1px solid;
 }
 
 
@@ -101,6 +107,7 @@ html.lenis body {
     transition-duration: 1ms;
     transition-behavior: allow-discrete;
 }
+
 
 @media screen and (min-width:760px) {
 

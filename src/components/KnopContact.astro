@@ -3,8 +3,8 @@ import contactPicture from "../assets/images/contactPicture.jpg";
 import Image from "astro/components/Image.astro";
 ---
 
-<section class="formSection">
-    <div class="formWrapper">
+<section class="contactSection" id="contactSection">
+    <div class="contactWrapper" id="contactWrapper">
         <div class="formLeft">
             <div class="contactGreeting">
                 <h2>Kontaktieren Sie uns!</h2>
@@ -50,15 +50,20 @@ import Image from "astro/components/Image.astro";
         <Image
             src={contactPicture}
             alt="Bild einer Musterküche von Knop Neustadt"
-            width={600}
-            widths={[600, 800, 1200]}
-            sizes="(max-width: 600px) 600px,(max-width:800px) 800px, (max-width: 1200px) 1200px"
+            widths={[240, 540, 1400]}
+            sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
             loading={"lazy"}
+            quality={50}
         />
     </div>
 </section>
 
 <style>
+    .contactSection {
+        background-color: var(--color-light);
+        color: var(--color-dark);
+    }
+
     input,
     textarea,
     button {
@@ -70,9 +75,10 @@ import Image from "astro/components/Image.astro";
         cursor: pointer;
         transition: all ease-in-out 0.1s;
         width: 100%;
+        border: 1px solid var(--color-knop-magenta);
     }
     button:hover {
-        background-color: var(--color-dark);
+        background-color: var(--color-knop-magenta);
         color: var(--color-light);
     }
 
@@ -99,11 +105,11 @@ import Image from "astro/components/Image.astro";
     }
 
     @media screen and (min-width: 760px) {
-        .formSection {
+        .contactSection {
             min-height: 80vh;
         }
 
-        .formWrapper {
+        .contactWrapper {
             display: flex;
             justify-content: space-between;
             gap: 2rem;
@@ -152,12 +158,11 @@ import Image from "astro/components/Image.astro";
     }
 
     @media screen and (min-width: 1280px) {
-
-        .formSection{
-            height: 100vh;
+        .contactSection {
+            min-height: 100vh;
         }
 
-        .formWrapper {
+        .contactWrapper {
             gap: var(--padding-desktop);
         }
     }
