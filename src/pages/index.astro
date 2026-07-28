@@ -6,12 +6,24 @@ import KnopProcess from "../components/KnopProcess.astro";
 import KnopPartners from "../components/KnopPartners.astro";
 import KnopFooter from "../components/KnopFooter.astro";
 import KnopContact from "../components/KnopContact.astro";
+import { partners } from "../data/partnersKueche.ts";
 ---
 
-<Layout title="Küchentrends Knop Neustadt">
+<Layout
+	title="Knop Küchentrends | Ihr Küchenstudio in Neustadt"
+	description="Traumküche in Neustadt & Umgebung planen: Knop Küchentrends begleitet Sie von der 3D-Visualisierung bis zur Montage. Lassen Sie sich beraten!"
+>
 	<KnopHeader />
-	<KnopWelcome />
-	<KnopPartners />
+	<KnopWelcome
+		subHeading="Küchentrends"
+		headingMain1="Ihr Partner"
+		headingMain2="in Neustadt!"
+		headingSpan="für die neue Küche"
+		paragraph="Knop Neustadt schafft Küchen, die leben. Mit handwerklicher Präzision und modernem Design entstehen Räume, in denen Qualität spürbar wird."
+		bgMobile="/src/assets/images/kueche/welcomePicture.webp"
+		bgDesktop="/src/assets/images/kueche/welcomePictureDesktop.webp"
+	/>
+	<KnopPartners partners={partners} />
 	<KnopProcess />
 	<KnopContact />
 	<KnopFooter />

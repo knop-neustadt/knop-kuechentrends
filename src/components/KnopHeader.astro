@@ -57,6 +57,41 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         <li><a href="/#partnersWrapper" class="nav-link">Hersteller</a></li>
         <li><a href="/#processWrapper" class="nav-link">Ablauf</a></li>
         <li><a href="/#contactWrapper" class="nav-link">Kontakt</a></li>
+        <li class="dropdown lg:dropdown-end">
+            <div
+                tabindex="0"
+                role="button"
+                class="nav-link cursor-pointer flex items-center gap-1"
+            >
+                Weitere Gewerke
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 fill-current opacity-60"
+                    viewBox="0 0 20 20"
+                >
+                    <path
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    ></path>
+                </svg>
+            </div>
+            <ul
+                tabindex="0"
+                class="dropdown-content z-[110] menu p-2 shadow-lg bg-[#19181f] rounded-box w-52 border border-white/10 mt-2"
+            >
+                <li>
+                    <a
+                        href="/ gewerke-1"
+                        class="text-white hover:text-[var(--color-knop-magenta)]"
+                        >Link 1</a>
+                </li>
+                <li>
+                    <a
+                        href="/ gewerke-2"
+                        class="text-white hover:text-[var(--color-knop-magenta)]"
+                        >Link 2</a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>
 
@@ -150,12 +185,15 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         transition-delay: 0.1s;
     }
 
-    .nav-links a {
+    .nav-links a,
+    .dropdown {
         color: var(--color-light);
         font-family: var(--font-cousine);
         text-decoration: none;
         font-size: 1.5rem;
     }
+
+
 
     /* DESKTOP ANPASSUNGEN (ab 1024px) */
     @media screen and (min-width: 1024px) {
@@ -197,8 +235,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             transform: none;
             padding: 0;
             gap: 0;
-            flex: 0;
-
+            flex-grow: 0;
             li {
                 padding-right: 1.25rem;
 
@@ -210,7 +247,6 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
 
         .nav-links a {
             position: relative;
-            padding-bottom: 4px;
         }
 
         .nav-links a::after {

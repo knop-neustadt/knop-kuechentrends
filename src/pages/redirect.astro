@@ -4,13 +4,18 @@ import KnopHeader from "../components/KnopHeader.astro";
 import KnopFooter from "../components/KnopFooter.astro";
 ---
 
-<Layout title="Redirect" mainClass="mainRedirect">
+<Layout
+    title="Vielen Dank für Ihre Anfrage!"
+    mainClass="mainRedirect"
+    description="Vielen Dank für Ihre Anfrage! Wir werden uns schnellstmöglich um Ihr Anliegen kümmern."
+    noindex={true}
+>
     <KnopHeader />
 
     <section class="redirectSection">
         <div class="redirectWrapper">
             <h1>Vielen Dank für Ihre Anfrage!</h1>
-            <p>Wir werden uns schnellstmöglich um ihr Anliegen kümmern.</p>
+            <p>Wir werden uns schnellstmöglich um Ihr Anliegen kümmern.</p>
             <a href="/">Zurück zur Startseite</a>
         </div>
     </section>

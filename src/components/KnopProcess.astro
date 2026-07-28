@@ -1,18 +1,18 @@
 ---
 import Image from "astro/components/Image.astro";
 
-import küche2 from "../assets/images/küche2.jpg";
-import kuecheLandhaus from "../assets/images/Landhaus Küche.jpg";
-import aufmass from "../assets/images/Aufmaß.jpg";
-import arbeistplatten from "../assets/images/Arbeitsplatten.jpg";
-import ecki from "../assets/images/ecki.jpg";
+import küche2 from "../assets/images/kueche/küche2.jpg";
+import kuecheLandhaus from "../assets/images/kueche/Landhaus Küche.jpg";
+import aufmass from "../assets/images/kueche/Aufmaß.jpg";
+import arbeistplatten from "../assets/images/kueche/Arbeitsplatten.jpg";
+import ecki from "../assets/images/kueche/ecki.jpg";
 ---
 
 <section class="processWrapper" id="processWrapper">
     <div class="subHeading"><p>Ablauf</p></div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" checked />
+        <input type="checkbox" name="my-accordion-1" checked aria-label="Punkt 1 aufklappen" />
         <div class="collapse-title font-semibold">
             <p>1</p>
             <h2>Beratung und Planung</h2>
@@ -30,7 +30,7 @@ import ecki from "../assets/images/ecki.jpg";
 
                 <Image
                     src={arbeistplatten}
-                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    alt="Ein Bild von drei Arbeitsplattenmustern."
                     class="collapseImage"
                     widths={[240, 540, 1400]}
                     sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
@@ -40,7 +40,7 @@ import ecki from "../assets/images/ecki.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" aria-label="Punkt 2 aufklappen"/>
         <div class="collapse-title font-semibold">
             <p>2</p>
 
@@ -59,7 +59,7 @@ import ecki from "../assets/images/ecki.jpg";
 
                 <Image
                     src={aufmass}
-                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    alt="Ein Bild von zwei Handwerkern, die einen Raum vermessen."
                     class="collapseImage"
                     widths={[400, 600, 800, 1200]}
                     loading="eager"
@@ -68,7 +68,7 @@ import ecki from "../assets/images/ecki.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" aria-label="Punkt 3 aufklappen"/>
         <div class="collapse-title font-semibold">
             <p>3</p>
             <h2>Lieferung und Montage</h2>
@@ -78,7 +78,7 @@ import ecki from "../assets/images/ecki.jpg";
                 <p>
                     Die Montage einer Küche erfordert echte Handwerkskunst.
                     Deshalb schicken wir keine Subunternehmer, sondern unsere
-                    eigenen, meistergeführten Teams zu Ihnen. Von der
+                    eigenen, erfahrenen Teams zu Ihnen. Von der
                     millimetergenauen Ausrichtung der Schränke über den präzisen
                     Einpass von Arbeitsplatten bis hin zum fachgerechten
                     Anschluss modernster Hightech-Elektrogeräte: Wir montieren
@@ -87,7 +87,7 @@ import ecki from "../assets/images/ecki.jpg";
 
                 <Image
                     src={ecki}
-                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    alt="Ein Bild von zwei Handwerkern, die eine Küche montieren."
                     class="collapseImage"
                     widths={[240, 540, 1000]}
                     sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1000px"
@@ -98,7 +98,7 @@ import ecki from "../assets/images/ecki.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" />
+        <input type="checkbox" name="my-accordion-1" aria-label="Punkt 4 aufklappen"/>
         <div class="collapse-title font-semibold">
             <p>4</p>
             <h2>Entsorgung der alten Küche</h2>
@@ -107,7 +107,7 @@ import ecki from "../assets/images/ecki.jpg";
             <div class="contentSpacing">
                 <p>
                     Ob kleine Nische, oder große Küche im Landhausstil.
-                    Natürlich kümmern wir uns auch um den Abbau und die
+                    Natürlich kümmern wir uns auch um den Abbau und die fachgerechte
                     Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
                     eine Kooperation mit dem Zweckverband Ostholstein ist die
                     Entsorgung für Sie sogar kostenlos!
@@ -115,7 +115,7 @@ import ecki from "../assets/images/ecki.jpg";
 
                 <Image
                     src={kuecheLandhaus}
-                    alt="Ein Bild von drei Handwerkern, die über einen Zebrastreifen gehen."
+                    alt="Ein Bild einer Landhausküche von Knop Neustadt."
                     class="collapseImage"
                     widths={[240, 540, 1400]}
                     sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
@@ -176,16 +176,13 @@ import ecki from "../assets/images/ecki.jpg";
         display: flex;
         flex-direction: column;
         justify-content: center;
-    
+
         .collapse {
             background-color: var(--color-dark);
         }
-    
-    
     }
 
     @media screen and (min-width: 1024px) {
-
         .collapse {
             font-size: 4rem;
         }

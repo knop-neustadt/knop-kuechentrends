@@ -1,20 +1,42 @@
+---
+interface Props {
+    subHeading?: string;
+    headingMain1?: string;
+    headingMain2?: string;
+    headingSpan?: string;
+    paragraph?: string;
+    buttonText?: string;
+    buttonLink?: string;
+    bgMobile?: string;
+    bgDesktop?: string;
+}
+
+const {
+    subHeading = "Küchentrends",
+    headingMain1 = "Ihr Partner",
+    headingMain2 = "in Neustadt!",
+    headingSpan = "für die neue Küche",
+    paragraph = "Knop Neustadt schafft Küchen, die leben. Mit handwerklicher Präzision und modernem Design entstehen Räume, in denen Qualität spürbar wird.",
+    bgMobile = "/src/assets/images/welcomePicture.webp",
+    bgDesktop = "/src/assets/images/welcomePictureDesktop.webp"
+} = Astro.props;
+---
+
 <section class="welcomeWrapper">
     <div class="stylediv"></div>
     <div class="welcomeTextWrapper">
         <div class="subHeadingWrapper">
-            <p class="subHeading">Küchentrends</p>
+            <p class="subHeading">{subHeading}</p>
         </div>
         <div class="headingWrapper">
             <h1 class="heading">
-                Ihr Partner <span>für die neue Küche</span> in Neustadt!
+                {headingMain1} <span>{headingSpan}</span>{headingMain2}
             </h1>
         </div>
 
         <div class="ctaWrapper">
             <p class="welcomeParagraph">
-                Knop Neustadt schafft Küchen, die leben. Mit handwerklicher
-                Präzision und modernem Design entstehen Räume, in denen Qualität
-                spürbar wird.
+                {paragraph}
             </p>
             <div class="welcomeButtonsWrapper">
                 <a href="#contactSection" class="linkBtn">Kontakt</a>
@@ -22,14 +44,14 @@
         </div>
     </div>
 </section>
-<style>
+<style define:vars={{ bgMobile: `url(${bgMobile})`, bgDesktop: `url(${bgDesktop})` }}>
     span {
         display: block;
     }
     .welcomeWrapper {
         display: grid;
         min-height: 100svh;
-        background-image: url(/src/assets/images/welcomePicture.webp);
+        background-image: var(--bgMobile);
         background-position: center;
         background-size: cover;
     }
@@ -103,7 +125,7 @@
 
     @media screen and (min-width: 1280px) {
         .welcomeWrapper {
-            background-image: url(/src/assets/images/welcomePictureDesktop.webp);
+            background-image: var(--bgDesktop);
         }
 
         .welcomeTextWrapper {
@@ -160,11 +182,16 @@
         type: "lines, words",
         mask: "lines",
         wordsClass: "headingWord",
+        aria: "none",
     });
-    const splitSubHeading = new SplitText(subHeading, { type: "words" });
+    const splitSubHeading = new SplitText(subHeading, {
+        type: "words",
+        aria: "none",
+    });
     const splitWelcomeParagraph = new SplitText(welcomeParagraph, {
         type: "lines",
         mask: "lines",
+        aria: "none",
     });
 
     const tl = gsap.timeline();
