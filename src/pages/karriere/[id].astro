@@ -1,0 +1,131 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import KnopHeader from "../../components/KnopHeader.astro";
+import KnopFooter from "../../components/KnopFooter.astro";
+import KnopNavLinkBack from "../../components/KnopNavLinkBack.astro";
+
+export async function getStaticPaths() {
+  const jobs = await getCollection("jobs");
+  return jobs.map((job) => ({
+    params: { id: job.id },
+    props: { job },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { job } = Astro.props;
+const { Content } = await render(job);
+---
+
+<Layout title={job.data.title} mainClass="jobMain">
+  <KnopHeader />
+
+  <div class="jobWelcome">
+    <div class="welcomeWrapper">
+
+      <KnopNavLinkBack link="/karriere#positions"/ linkText="Stellenangebote" />
+
+      <h1>{job.data.title}</h1>
+      <div class="jobDetails">
+        <p>Art: {job.data.employment}</p>
+        <p>Standort: {job.data.location}</p>
+        <p>Ab: {job.data.startDate}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <Content />
+  </div>
+
+  <KnopFooter />
+</Layout>
+
+<style>
+  .jobWelcome {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: var(--padding-mobile);
+    padding-top: 15svh;
+    padding-bottom: 10svh;
+  }
+
+  .jobDetails {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .welcomeWrapper,
+  .content {
+    max-width: 1440px;
+    margin: auto;
+  }
+
+  .welcomeWrapper {
+
+    a {
+      font-weight: 400;
+      transition: all ease 0.2s;
+      font-size: 1.25rem;
+    }
+
+    .linkWrapper{
+      margin-bottom: 3rem;
+    }
+  }
+
+  .content {
+    padding: var(--padding-mobile);
+    background-color: var(--color-light);
+
+    p {
+      padding-bottom: 0.75rem;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      font-weight: 500;
+      font-size: 3rem;
+    }
+
+    ul {
+      list-style: disc;
+      margin-bottom: 1rem;
+      li {
+        margin-left: 2rem;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .jobWelcome {
+      padding: 0;
+      padding-top: 2rem;
+    }
+
+    .jobDetails {
+      margin-bottom: 0;
+    }
+
+    .welcomeWrapper {
+      padding-right: var(--padding-desktop);
+      padding: var(--padding-desktop);
+    }
+
+    .content {
+      padding: var(--padding-desktop);
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      p,
+      ul {
+        font-size: 1rem;
+      }
+    }
+  }
+</style>

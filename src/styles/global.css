@@ -43,11 +43,25 @@ h4,
 h5,
 h6 {
     font-family: var(--font-alumni);
+    font-weight: 450;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 3.5rem;
+    line-height: 100%;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 8vw, 4rem);
+    font-weight: 500;
 }
+
+h3 {
+    font-size: 2rem;
+    line-height: 1.8rem;
+}
+
 
 .subHeading {
     font-size: 1.25rem;
@@ -122,13 +136,9 @@ html.lenis body {
         padding-bottom: 1rem;
     }
 
-    h2 {
-        font-size: 5rem;
-        font-weight: 500;
-    }
 
     section {
-        padding: var(--padding-desktop);
+        padding: 4rem var(--padding-desktop);
     }
 
 

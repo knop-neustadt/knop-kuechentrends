@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import KnopPartners from "../components/KnopPartners.astro";
+import { partners } from "../data/partnersBad.ts";
+import KnopHeader from "../components/KnopHeader.astro";
+import KnopFooter from "../components/KnopFooter.astro";
+import KnopWelcome from "../components/KnopWelcome.astro";
+import KnopProcess from "../components/KnopProcess.astro";
+import KnopContact from "../components/KnopContact.astro";
+---
+
+<Layout title="Knop Badstudio" description="Bäder von Knop Neustadt">
+    <KnopHeader />
+
+    <KnopWelcome
+        subHeading="Badstudio"
+        headingMain1="Ihr Partner"
+        headingSpan="für das neue Bad"
+        headingMain2="in Neustadt!"
+        paragraph="Knop Neustadt schafft Bäder, die leben. Mit handwerklicher Präzision und modernem Design entstehen Räume, in denen Qualität spürbar wird."
+        bgMobile="/images/badWelcome.webp"
+        bgDesktop="/images/badWelcome.webp"
+    />
+
+    <KnopPartners partners={partners} />
+
+    <KnopProcess />
+
+    <KnopContact />
+
+    <KnopFooter />
+</Layout>

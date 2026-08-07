@@ -1,0 +1,50 @@
+---
+interface Props {
+    link: string;
+    linkText: string;
+}
+
+const { link = "", linkText = "" } = Astro.props;
+---
+
+<div class="linkWrapper">
+    <p class="linkArrow">&#x2190</p>
+    <a href={link}>{linkText}</a>
+</div>
+
+<style>
+    .linkWrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .linkArrow {
+        transition: transform 0.1s ease-in-out;
+        will-change: transform;
+        line-height: 1.25rem;
+    }
+
+    .linkWrapper:hover .linkArrow {
+        transform: translateX(-4px) translateY(-1px);
+    }
+
+    p {
+        font-size: 2.5rem;
+        transform: translateY(-1px);
+    }
+
+    @media screen and(min-width:1024px) {
+        .linkWrapper {
+            background: linear-gradient(currentColor 0 0) bottom left/
+                var(--underline-width, 0%) 0.1em no-repeat;
+            color: var(--color-light);
+            display: inline-block;
+            transition: background-size 0.5s;
+        }
+
+        .linkWrapper:hover {
+            --underline-width: 100%;
+        }
+    }
+</style>

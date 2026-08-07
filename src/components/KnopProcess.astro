@@ -12,7 +12,12 @@ import ecki from "../assets/images/kueche/ecki.jpg";
     <div class="subHeading"><p>Ablauf</p></div>
 
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" checked aria-label="Punkt 1 aufklappen" />
+        <input
+            type="checkbox"
+            name="my-accordion-1"
+            checked
+            aria-label="Punkt 1 aufklappen"
+        />
         <div class="collapse-title font-semibold">
             <p>1</p>
             <h2>Beratung und Planung</h2>
@@ -40,7 +45,11 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" aria-label="Punkt 2 aufklappen"/>
+        <input
+            type="checkbox"
+            name="my-accordion-1"
+            aria-label="Punkt 2 aufklappen"
+        />
         <div class="collapse-title font-semibold">
             <p>2</p>
 
@@ -68,7 +77,11 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" aria-label="Punkt 3 aufklappen"/>
+        <input
+            type="checkbox"
+            name="my-accordion-1"
+            aria-label="Punkt 3 aufklappen"
+        />
         <div class="collapse-title font-semibold">
             <p>3</p>
             <h2>Lieferung und Montage</h2>
@@ -98,7 +111,11 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input type="checkbox" name="my-accordion-1" aria-label="Punkt 4 aufklappen"/>
+        <input
+            type="checkbox"
+            name="my-accordion-1"
+            aria-label="Punkt 4 aufklappen"
+        />
         <div class="collapse-title font-semibold">
             <p>4</p>
             <h2>Entsorgung der alten Küche</h2>
@@ -107,10 +124,10 @@ import ecki from "../assets/images/kueche/ecki.jpg";
             <div class="contentSpacing">
                 <p>
                     Ob kleine Nische, oder große Küche im Landhausstil.
-                    Natürlich kümmern wir uns auch um den Abbau und die fachgerechte
-                    Entsorgung ihrer alten Küchenmöbel und Elektrogeräte. Durch
-                    eine Kooperation mit dem Zweckverband Ostholstein ist die
-                    Entsorgung für Sie sogar kostenlos!
+                    Natürlich kümmern wir uns auch um den Abbau und die
+                    fachgerechte Entsorgung ihrer alten Küchenmöbel und
+                    Elektrogeräte. Durch eine Kooperation mit dem Zweckverband
+                    Ostholstein ist die Entsorgung für Sie sogar kostenlos!
                 </p>
 
                 <Image
@@ -131,6 +148,10 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         border-bottom: var(--color-knop-magenta) 1px solid;
         border-radius: 0;
         font-size: 2rem;
+
+        p {
+            font-size: clamp(1.25rem, 8vw, 1.5rem);
+        }
     }
 
     .contentSpacing {
@@ -157,28 +178,37 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         font-size: 2rem;
 
         p {
-            width: 1rem;
             text-align: center;
+            font-size: clamp(1.5rem, 8vw, 4rem);
         }
     }
 
     .collapse-title::after {
-        top: 0rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: fit-content;
+        height: fit-content;
         right: 0.5rem;
         font-family: var(--font-alumni);
         font-weight: 400;
+        font-size: 4rem;
+        font-size: clamp(1.5rem, 8vw, 4rem);
     }
 
     .processWrapper {
         background-color: var(--color-dark);
         color: var(--color-light);
-        min-height: 100vh;
+        min-height: 105vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
 
         .collapse {
             background-color: var(--color-dark);
+        }
+
+        .subHeading {
+            padding: 0;
         }
     }
 
@@ -193,11 +223,6 @@ import ecki from "../assets/images/kueche/ecki.jpg";
             p {
                 width: 2.5rem;
             }
-        }
-
-        .collapse-title::after {
-            top: 0rem;
-            inset-inline-end: 2rem !important;
         }
 
         .collapseImage {

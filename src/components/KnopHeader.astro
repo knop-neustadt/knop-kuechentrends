@@ -76,19 +76,17 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             </div>
             <ul
                 tabindex="0"
-                class="dropdown-content z-[110] menu p-2 shadow-lg bg-[#19181f] rounded-box w-52 border border-white/10 mt-2"
+                class="dropdown-content z-[110] menu p-4 shadow-lg mt-4"
             >
                 <li>
-                    <a
-                        href="/ gewerke-1"
-                        class="text-white hover:text-[var(--color-knop-magenta)]"
-                        >Link 1</a>
+                    <a href="https://knop-energietechnik.de/" target="_blank"
+                        >Energietechnik</a
+                    >
                 </li>
                 <li>
-                    <a
-                        href="/ gewerke-2"
-                        class="text-white hover:text-[var(--color-knop-magenta)]"
-                        >Link 2</a>
+                    <a href="https://www.knop-neustadt.de/" target="_blank"
+                        >Ambientezentrum</a
+                    >
                 </li>
             </ul>
         </li>
@@ -144,16 +142,16 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         background-blend-mode: overlay;
         backdrop-filter: blur(4px);
         box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-
         height: 8svh;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
         transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
     }
 
     nav.open {
         height: fit-content;
+        overflow: visible;
     }
 
     .nav-top-bar {
@@ -191,9 +189,12 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         font-family: var(--font-cousine);
         text-decoration: none;
         font-size: 1.5rem;
+        font-weight: bold;
     }
 
-
+    .dropdown-content {
+        background-color: var(--color-dark-transparent);
+    }
 
     /* DESKTOP ANPASSUNGEN (ab 1024px) */
     @media screen and (min-width: 1024px) {
@@ -210,8 +211,8 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             padding: 1.5rem 2.5rem;
             width: calc(100vw - (var(--padding-desktop) * 2) + 5rem);
             top: 1.25rem;
-            overflow: visible;
             padding: 0 1rem;
+            overflow: visible;
         }
 
         .logo-link img {
@@ -222,6 +223,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
 
         nav.open {
             height: 6svh;
+            overflow: visible;
         }
 
         .nav-top-bar {
