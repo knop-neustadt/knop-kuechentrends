@@ -33,10 +33,6 @@ export const partners =
         <p>Ein besonderes Merkmal von Ballerina ist die außergewöhnliche Gestaltungsfreiheit. Mit über 4.100 Farbtönen aus den Farbsystemen RAL und Sikkens sowie exklusiven Designkollektionen entstehen Küchen, die perfekt auf den persönlichen Wohnstil abgestimmt werden können.
         </p>
         
-        <p>
-        Ergänzt wird dies durch innovative Materialien wie Smartglas und besonders widerstandsfähige Oberflächen, die den täglichen Anforderungen mühelos standhalten und ihre hochwertige Optik über viele Jahre bewahren.
-        </p>
-        
         <p> 
         Auch im Detail setzt Ballerina Maßstäbe. Durchdachte Stauraumlösungen, ein besonders tiefer Korpus für mehr Arbeitsfläche und hochwertige Beschlagtechnik sorgen für maximalen Komfort im Alltag.
         </p>`,
@@ -70,10 +66,6 @@ export const partners =
         Miele steht seit 1899 für Qualität, Langlebigkeit und innovative Hausgeräte Made in Germany. Das familiengeführte Unternehmen mit Hauptsitz in Gütersloh entwickelt seit über 125 Jahren Produkte, die durch ihre hochwertige Verarbeitung, moderne Technologien und zeitloses Design überzeugen.
         </p>
 
-        <p>
-        Ob Backofen, Kochfeld, Geschirrspüler oder Kühlgerät – Miele vereint höchsten Bedienkomfort mit zuverlässiger Leistung und ist weltweit für seinen hohen Qualitätsanspruch bekannt.
-        </p>
-        
         <p>
         Mit intelligenten Funktionen, energieeffizienter Technik und einer außergewöhnlich langen Lebensdauer setzt Miele seit Generationen Maßstäbe im Bereich der Hausgeräte.
         </p>
