@@ -2,6 +2,7 @@
 import { Font } from "astro:assets";
 import "../styles/global.css";
 import KnopFooter from "../components/KnopFooter.astro";
+import KnopHeader from "../components/KnopHeader.astro";
 
 interface Props {
 	title: string;
@@ -25,20 +26,25 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="icon" type="image/png" href="/favicon.png" sizes="any" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		{noindex && <meta name="robots" content="noindex, follow" />}
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image} />
 		<title>{title}</title>
-		<Font cssVariable="--font-cousine" preload />
+		<Font cssVariable="--font-manrope" preload />
 		<Font cssVariable="--font-alumni" preload />
 	</head>
+
 	<body>
+		<KnopHeader />
+
 		<main class={mainClass}>
 			<slot />
 		</main>
+
+		<KnopFooter />
 	</body>
 </html>
 

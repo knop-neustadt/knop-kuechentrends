@@ -3,9 +3,10 @@ import KnopHeader from "../components/KnopHeader.astro";
 import KnopWelcome from "../components/KnopWelcome.astro";
 import Layout from "../layouts/Layout.astro";
 
-import Link_arrow from "../assets/svgs/link_arrow.svg";
+import Karriere_arrow from "../assets/svgs/karriere_arrow.svg";
 
 import { getCollection } from "astro:content";
+import KnopFooter from "../components/KnopFooter.astro";
 const jobs = await getCollection("jobs");
 
 jobs.sort((a, b) => a.data.order - b.data.order);
@@ -27,77 +28,129 @@ jobs.sort((a, b) => a.data.order - b.data.order);
     />
 
     <section class="positionsSection" id="positions">
-        <h2>Offene Stellen</h2>
+        <h2>Jobangebote</h2>
         <ul>
             {
                 jobs.map((job) => (
                     <li>
                         <a href={`/karriere/${job.id}`}>
-                            <h3>{job.data.title}</h3>
-                            <p>{job.data.description}</p>
+                            <div>
+                                <h3>{job.data.title}</h3>
+                                <div class="jobInfos">
+                                    <p>{job.data.location}</p>
+                                    <p>{job.data.employment}</p>
+                                    <p>{job.data.startDate}</p>
+                                </div>
+                            </div>
+                            <Karriere_arrow />
                         </a>
                     </li>
                 ))
             }
         </ul>
     </section>
+
+    <KnopFooter />
 </Layout>
 
 <style>
+    h2 {
+        margin: auto;
+        margin-bottom: 3rem;
+        margin-top: 3rem;
+        max-width: var(--max-width);
+    }
+
     h3 {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
+
+        font-weight: 600;
     }
 
     ul {
+        max-width: var(--max-width);
+        margin: auto;
         li {
-            display: flex;
-            align-items: center;
-            position: relative;
-
+            margin-bottom: 2rem;
             a {
                 width: 100%;
-                transition: all 0.2s ease;
-                transition-delay: 0.05s;
-                padding: 1.5rem;
+                transition: all 0.2s ease-in-out;
+                padding: var(--padding-mobile);
                 z-index: 1;
-                position: relative;
                 border: var(--color-knop-magenta) 1px solid;
-                overflow: hidden;
-            }
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
 
-            a::before {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background-color: var(--color-knop-magenta);
-                z-index: -1;
-                transform: scaleY(0);
-                transform-origin: top;
-                transition: transform 0.3s ease-in-out;
-                
-            }
-
-            a:hover::before {
-                transform: scaleY(1.01);
-            }
-
-            a:hover {
-                color: var(--color-light);
-
-                .linkArrow {
+                svg {
                     path {
-                        fill: var(--color-light);
+                        transition: all 0.2s ease 0.06s;
+
+                        fill: var(--color-dark);
                     }
                 }
             }
 
+            a:hover {
+                color: var(--color-light);
+                padding-left: 2rem;
+                padding-right: 2rem;
+                background-color: var(--color-knop-magenta);
+
+                svg {
+                    path {
+                        fill: var(--color-light);
+                    }
+                }
+
+                .jobInfos {
+                    p {
+                        color: var(--color-light);
+                        border-color: var(--color-light);
+                    }
+                }
+            }
+        }
+    }
+
+    .jobInfos {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        p {
+            font-size: clamp(0.75rem, 2vw, 1rem);
+            padding: 0.5rem;
+            color: var(--color-knop-magenta);
+            border: 1px solid var(--color-knop-magenta);
+            line-height: 100%;
+            font-weight:;
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        
+        h2{
+            margin-top: 0;
         }
 
-        li:not(:first-child) a {
-            border-top: 0;
+        h3 {
+            margin-bottom: 1.5rem;
+        }
+        ul {
+            li {
+                a {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        .jobInfos {
+            p {
+                padding: 1rem;
+            }
         }
     }
 </style>

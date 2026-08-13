@@ -3,7 +3,7 @@ title: Mitarbeiter (m/w/d) Personalwesen & Entgeltabrechnung
 description: Verstärke unser Team als Klempner.
 location: Neustadt in Holstein
 employment: Vollzeit
-order: 1
+order: 2
 startDate: 01.08.2026
 ---
 

@@ -21,6 +21,36 @@ import Location from "../assets/svgs/Location.svg";
             Ihr Partner für Küchentrends.
         </p>
     </aside>
+
+    <nav>
+        <h3 class="footer-title">Unternehmen</h3>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a
+                href="https://knop-neustadt.de"
+                class="link link-hover"
+                target="_blank">Ambientezentrum</a
+            >
+        </div>
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a
+                href="https://knop-energietechnik.de/"
+                class="link link-hover"
+                target="_blank">Energietechnik</a
+            >
+        </div>
+
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a
+                href="https://karriere.knop-neustadt.de"
+                class="link link-hover"
+                target="_blank">Karriere</a
+            >
+        </div>
+    </nav>
+
     <nav>
         <h3 class="footer-title">Kontakt</h3>
         <div class="footerLinkWrapper">
@@ -94,10 +124,14 @@ import Location from "../assets/svgs/Location.svg";
         padding: var(--padding-mobile);
         color: var(--color-light);
         background-color: var(--color-dark);
-        border-top: var(--color-light) 1px solid;
+        border-top: var(--border-color) 1px solid;
 
         font-size: 1rem;
         margin-top: auto;
+
+        p {
+            font-size: 1rem;
+        }
 
         img {
             width: 64px;

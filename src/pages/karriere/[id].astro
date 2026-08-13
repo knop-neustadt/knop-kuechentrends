@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import KnopHeader from "../../components/KnopHeader.astro";
 import KnopFooter from "../../components/KnopFooter.astro";
 import KnopNavLinkBack from "../../components/KnopNavLinkBack.astro";
+import KnopLink from "../../components/KnopLink.astro";
 
 export async function getStaticPaths() {
   const jobs = await getCollection("jobs");
@@ -22,9 +23,6 @@ const { Content } = await render(job);
 
   <div class="jobWelcome">
     <div class="welcomeWrapper">
-
-      <KnopNavLinkBack link="/karriere#positions"/ linkText="Stellenangebote" />
-
       <h1>{job.data.title}</h1>
       <div class="jobDetails">
         <p>Art: {job.data.employment}</p>
@@ -34,8 +32,24 @@ const { Content } = await render(job);
     </div>
   </div>
 
-  <div class="content">
-    <Content />
+  <div class="contentWrapper">
+    <div class="content">
+      <Content />
+    </div>
+    <div class="contentContact">
+      <h3>Interesse Geweckt?</h3>
+      <p>
+        Passt diese Position zu Ihren Vorstellungen? Dann freuen wir uns darauf,
+        Sie kennenzulernen! Senden Sie Ihre Unterlagen ganz unkompliziert per
+        E-Mail an Tatjana Knop oder melden Sie sich bei Fragen direkt vorab bei
+        uns.
+      </p>
+      <KnopLink
+        linkto="mailto:tatjana.knop@knop-neustadt.de"
+        linkName="Kontakt aufnehmen"
+      />
+      <KnopLink linkto="/karriere" linkName="Stellenangebote"  />
+    </div>
   </div>
 
   <KnopFooter />
@@ -47,13 +61,16 @@ const { Content } = await render(job);
     color: var(--color-light);
     padding: var(--padding-mobile);
     padding-top: 15svh;
-    padding-bottom: 10svh;
+    padding-bottom: 1.25rem;
   }
 
   .jobDetails {
     margin-top: 1.5rem;
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-weight: 400;
+
+    p {
+      font-size: 1rem;
+    }
   }
 
   .welcomeWrapper,
@@ -63,14 +80,13 @@ const { Content } = await render(job);
   }
 
   .welcomeWrapper {
-
     a {
       font-weight: 400;
       transition: all ease 0.2s;
       font-size: 1.25rem;
     }
 
-    .linkWrapper{
+    .linkWrapper {
       margin-bottom: 3rem;
     }
   }
@@ -89,13 +105,36 @@ const { Content } = await render(job);
       font-size: 3rem;
     }
 
+    h2{
+      font-weight: 500;
+    }
+
+    h2:first-of-type{
+      margin-top: 0;
+    }
+
     ul {
-      list-style: disc;
-      margin-bottom: 1rem;
+      list-style: square;
+      margin-bottom: 1.5rem;
       li {
         margin-left: 2rem;
         padding-left: 0.5rem;
       }
+
+      li::marker {
+        color: var(--color-knop-magenta);
+      }
+    }
+  }
+
+  .contentContact {
+    padding: 2rem var(--padding-mobile);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+
+    .linkBtn {
+      border-color: var(--color-light);
+      color: var(--color-light);
     }
   }
 
@@ -110,20 +149,47 @@ const { Content } = await render(job);
     }
 
     .welcomeWrapper {
-      padding-right: var(--padding-desktop);
-      padding: var(--padding-desktop);
+      padding: 3rem;
+      padding-top: 6rem;
+    }
+
+    .contentWrapper {
+      display: flex;
+      max-width: var(--max-width);
+      margin: auto;
+      position: relative;
     }
 
     .content {
-      padding: var(--padding-desktop);
-
+      border-right: 1px solid var(--color-dark);
+      padding: 3rem;
+      max-width: 70%;
       h2 {
-        font-size: 3rem;
+        font-size: 2.75rem;
         margin-bottom: 1rem;
       }
 
       p,
       ul {
+        font-size: 1;
+      }
+    }
+
+    .contentContact {
+      max-width: 30%;
+      position: sticky;
+      top: 4rem;
+      left: 0;
+      padding: 3rem 3rem;
+      height: fit-content;
+      background-color: var(--color-light);
+      color: var(--color-dark);
+      .linkBtn {
+        border-color: var(--color-dark);
+        color: var(--color-dark);
+      }
+
+      p{
         font-size: 1rem;
       }
     }

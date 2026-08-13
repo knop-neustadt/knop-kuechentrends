@@ -13,7 +13,9 @@
     --padding-tablet: 2rem;
     --border-radius: 10px;
     --border-radius-mobile: 5px;
-    --border-color: #cccccc;
+    --border-color: rgb(204, 204, 204) ;
+    --animation-time: 0.2s;
+    --max-width: 1440px;
 }
 
 
@@ -33,7 +35,7 @@ body {
 main {
     min-height: 100svh;
     font-size: 1rem;
-    font-family: var(--font-cousine);
+    font-family: var(--font-manrope);
 }
 
 h1,
@@ -44,41 +46,45 @@ h5,
 h6 {
     font-family: var(--font-alumni);
     font-weight: 450;
+    line-height: 100%;
 }
 
 h1 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 3.5rem;
     line-height: 100%;
 }
 
 h2 {
     font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 1.25rem;
+}
+
+h3 {
+    font-size: clamp(2rem, 8vw, 2.25rem);
+    line-height: 100%;
     font-weight: 500;
     margin-bottom: 1.25rem;
 }
 
-h3 {
-    font-size: clamp(2rem, 8vw, 2.75rem);
-    line-height: 100%;
-    font-weight: 500;
-
-}
-
 p {
     font-size: clamp(1rem, 4vw, 1.25rem);
+    font-weight: 420;
 }
 
 
 .subHeading {
     font-size: 1.25rem;
-    font-family: var(--font-cousine);
+    font-family: var(--font-manrope);
     font-weight: bold;
     padding-bottom: .5rem;
+    padding-left: .15rem;
 
     p {
         border-bottom: var(--color-knop-magenta) 1px solid;
-
+        font-weight: 700;
     }
 }
 
@@ -139,10 +145,6 @@ html.lenis body {
 
 
 @media screen and (min-width:1280px) {
-    .subHeading {
-        padding-bottom: 1rem;
-    }
-
 
     section {
         padding: 4rem var(--padding-desktop);
