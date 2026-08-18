@@ -111,9 +111,13 @@ import Image from "astro/components/Image.astro";
         padding: 0rem 0rem 1rem 0rem;
     }
 
+    label {
+        font-weight: 500;
+        padding-bottom: 0.25rem;
+    }
     @media screen and (min-width: 760px) {
         .contactSection {
-            min-height: 80vh;
+            min-height: 60vh;
         }
 
         .contactWrapper {
@@ -164,9 +168,10 @@ import Image from "astro/components/Image.astro";
         }
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1450px) {
         .contactWrapper {
             gap: var(--padding-desktop);
-            height:85vh;        }
+            height: 85vh;
+        }
     }
 </style>

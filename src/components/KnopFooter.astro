@@ -44,6 +44,15 @@ import Location from "../assets/svgs/Location.svg";
         <div class="footerLinkWrapper">
             <Link_arrow width={20} height={20} class="linkArrow" />
             <a
+                href="https://knop-kuechentrends.de"
+                class="link link-hover"
+                target="_blank">Küchentrends</a
+            >
+        </div>
+
+        <div class="footerLinkWrapper">
+            <Link_arrow width={20} height={20} class="linkArrow" />
+            <a
                 href="https://karriere.knop-neustadt.de"
                 class="link link-hover"
                 target="_blank">Karriere</a
@@ -152,9 +161,9 @@ import Location from "../assets/svgs/Location.svg";
         }
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 800px) {
         .footer {
-            padding: var(--padding-desktop);
+            padding: var(--padding-tablet);
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
@@ -169,5 +178,14 @@ import Location from "../assets/svgs/Location.svg";
             /* Bewegt den Pfeil um 4 Pixel nach oben (Y-Achse) */
             transform: translateY(-4px);
         }
+    }
+
+
+        @media screen and (min-width: 1450px) {
+        .footer {
+            padding: var(--padding-desktop);
+            
+        }
+
     }
 </style>

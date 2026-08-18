@@ -25,7 +25,6 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
 
             <svg
                 class="swap-off fill-current h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -39,7 +38,6 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
 
             <svg
                 class="swap-on fill-current h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -57,7 +55,12 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         <li><a href="/#partnersWrapper" class="nav-link">Hersteller</a></li>
         <li><a href="/#processWrapper" class="nav-link">Ablauf</a></li>
         <li><a href="/#contactWrapper" class="nav-link">Kontakt</a></li>
-        <li><a href="https://karriere.knop-neustadt.de" class="nav-link" target="_blank">Karriere</a></li>
+        <li>
+            <a
+                href="https://karriere.knop-neustadt.de"
+                class="nav-link"
+                target="_blank">Karriere</a>
+        </li>
         <li class="dropdown lg:dropdown-end">
             <div
                 tabindex="0"
@@ -66,7 +69,6 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             >
                 Weitere Gewerke
                 <svg
-                    xmlns="http://www.w3.org/2000/svg"
                     class="h-4 w-4 fill-current opacity-60"
                     viewBox="0 0 20 20"
                 >
@@ -197,8 +199,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
         background-color: var(--color-dark-transparent);
     }
 
-    /* DESKTOP ANPASSUNGEN (ab 1024px) */
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 800px) {
         /* Overlay auf Desktop komplett deaktivieren */
         .nav-overlay,
         .nav-overlay.open {
@@ -210,7 +211,7 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 2.5rem;
-            width: calc(100vw - (var(--padding-desktop) * 2) );
+            width: calc(100vw - (var(--padding-tablet) * 2));
             top: 1.25rem;
             padding: 0 1rem;
             overflow: visible;
@@ -270,9 +271,10 @@ import logoWhite from "../assets/images/KK_Logo_weiß.png";
             transform-origin: left;
         }
     }
-    @media screen and (min-width: 1260px) {
+    @media screen and (min-width: 1450px) {
         nav {
-            height: 5svh;
+            height: 5vh;
+            width: calc(100vw - (var(--padding-desktop) * 2));
         }
     }
 </style>

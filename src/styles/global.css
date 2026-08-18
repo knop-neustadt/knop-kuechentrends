@@ -144,7 +144,7 @@ html.lenis body {
 }
 
 
-@media screen and (min-width:1280px) {
+@media screen and (min-width:1450px) {
 
     section {
         padding: 4rem var(--padding-desktop);
