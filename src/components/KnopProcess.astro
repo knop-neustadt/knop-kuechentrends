@@ -152,11 +152,13 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         p {
             font-size: clamp(1rem, 4vw, 1.25rem);
         }
+
+        h2{
+            font-size: clamp(1.5rem,8vw,4rem);
+            margin: 0;
+        }
     }
 
-    .contentSpacing {
-        margin-top: 9rem;
-    }
 
     .collapseImage {
         width: 100%;
@@ -175,11 +177,13 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         font-family: var(--font-alumni);
         gap: 0.5rem;
         align-items: center;
-        font-size: 2rem;
+        padding: 1rem 2rem 1rem 0;
+
 
         p {
             text-align: center;
             font-size: clamp(1.5rem, 8vw, 4rem);
+            line-height: 1
         }
     }
 
@@ -212,17 +216,17 @@ import ecki from "../assets/images/kueche/ecki.jpg";
         }
     }
 
+    .collapse-content{
+        padding: 0;
+    }
+
     @media screen and (min-width: 1024px) {
         .collapse {
             font-size: 4rem;
         }
         .collapse-title {
-            gap: 2rem;
-            font-size: 5.5rem;
-            font-weight: 500;
-            p {
-                width: 2.5rem;
-            }
+            gap: 1rem;
+
         }
 
         .collapseImage {
