@@ -30,16 +30,17 @@ export default defineConfig({
 
     {
       provider: fontProviders.local(),
-      name: "Manrope",
-      cssVariable: "--font-manrope",
+      name: "IBM Plex Mono",
+      cssVariable: "--font-IBM",
       options: {
         variants: [
-          {
-            // Die normale variable TTF-Schrift
-            src: ['./src/assets/fonts/Manrope-VariableFont_wght.ttf'],
-            weight: '200 800',
-            style: 'normal'
-          },
+          { src: ['./src/assets/fonts/IBMPlexMono-Thin.ttf'], weight: 100, style: 'normal' },
+          { src: ['./src/assets/fonts/IBMPlexMono-ExtraLight.ttf'], weight: 200, style: 'normal' },
+          { src: ['./src/assets/fonts/IBMPlexMono-Light.ttf'], weight: 300, style: 'normal' },
+          { src: ['./src/assets/fonts/IBMPlexMono-Regular.ttf'], weight: 400, style: 'normal' },
+          { src: ['./src/assets/fonts/IBMPlexMono-Medium.ttf'], weight: 500, style: 'normal' },
+          { src: ['./src/assets/fonts/IBMPlexMono-SemiBold.ttf'], weight: 600, style: 'normal' },
+          { src: ['./src/assets/fonts/IBMPlexMono-Bold.ttf'], weight: 700, style: 'normal' },
         ]
       }
     },

@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+    title="Datenschutzerklärung"
+    description="Datenschutzerklärung Firma Knop"
+    noindex={true}
+    mainClass="dpsMain"
+>
+    <div class="dps_page">
+        <h1 class="dps_title">Impressum</h1>
+
+        <div class="dps_text">
+            <p>Bau-Technik- Ambiente-Zentrum Knop Neustadt GmbH</p>
+            <p>Sierksdorfer Str. 24</p>
+            <p>23730 Neustadt in Holstein</p>
+            <p>Schleswig-Holstein</p>
+            <p>Deutschland</p>
+        </div>
+
+        <div class="dps_text">
+            <p>Geschäftsführer: Thomas Knop</p>
+        </div>
+
+        <div class="dps_text">
+            <p>Tel.: +49 (4561) 3979-0</p>
+            <p>Fax: +49 (4561) 3979-24</p>
+            <p>info@knop-neustadt.de</p>
+        </div>
+
+        <div class="dps_text">
+            <p>Umsatzsteuer ID : DE 81 560 0697</p>
+        </div>
+
+        <div class="dps_text">
+            <p>Registergericht: Amtsgericht Lübeck</p>
+            <p>Handelsregister-Nummer: HRB 15431</p>
+        </div>
+
+        <div class="dps_text">
+            <p>
+                Wir sind nicht dazu bereit oder verpflichtet, an
+                Streitbeilegungsverfahren vor einer
+                Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
+
+            <a href="https://www.knop-neustadt.de/hinweisgeber/" class="link" target="_blank">Hinweisgeber</a>
+        </div>
+    </div>
+</Layout>
+<style is:global>
+    .dpsMain {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+    }
+
+    .dps_page {
+        max-width: 860px;
+        margin: auto;
+        padding: var(--padding-mobile);
+        padding-top: calc(8svh + 2rem);
+        color: rgb(255, 255, 255);
+
+        line-height: 1.6;
+
+        h1 {
+            font-size: 2.75rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 2.25rem;
+            font-weight: 450;
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: 2rem; /* Angepasst, da 2rem für h3 sehr groß war im Vergleich zu h2 */
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p,
+        ul li, a {
+            font-size: 1.15rem;
+        }
+
+        p {
+        }
+
+        ul {
+            padding: 0.5rem 0 1rem 0;
+
+            li {
+                list-style: square;
+                margin-left: 1rem;
+                padding-left: 0.25rem;
+                margin-bottom: 0.25rem;
+
+                &::marker {
+                    color: var(--color-knop-magenta);
+                }
+            }
+        }
+
+        a {
+            color: inherit;
+            word-break: break-all;
+        }
+    }
+
+    .dps_text {
+        margin-bottom: 1.5rem;
+    }
+</style>

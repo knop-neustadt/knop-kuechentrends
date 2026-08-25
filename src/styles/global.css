@@ -5,15 +5,15 @@
 
     --color-knop-magenta: #D40069;
     --color-knop-turquoise: #00A3A2;
-    --color-dark: #16151e;
-    --color-dark-transparent: #16151eb6;
+    --color-dark: #192028;
+    --color-dark-transparent: #192028b6;
     --color-light: #FFFFFC;
     --padding-desktop: 8rem;
     --padding-mobile: 1rem;
     --padding-tablet: 2rem;
     --border-radius: 10px;
     --border-radius-mobile: 5px;
-    --border-color: rgb(204, 204, 204) ;
+    --border-color: rgb(204, 204, 204);
     --animation-time: 0.2s;
     --max-width: 1440px;
 }
@@ -35,7 +35,7 @@ body {
 main {
     min-height: 100svh;
     font-size: 1rem;
-    font-family: var(--font-manrope);
+    font-family: var(--font-IBM), monospace;
 }
 
 h1,
@@ -44,7 +44,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-alumni);
+    font-family: var(--font-alumni), sans-serif;
     font-weight: 450;
     line-height: 100%;
 }
@@ -71,13 +71,30 @@ h3 {
 
 p {
     font-size: clamp(1rem, 4vw, 1.25rem);
-    font-weight: 420;
+    font-weight: 400;
 }
 
+nav {
+    li {
+
+        a,
+        div {
+            font-family: var(--font-IBM), monospace;
+
+        }
+    }
+
+
+}
+
+a {
+    font-family: var(--font-IBM), monospace;
+
+}
 
 .subHeading {
     font-size: 1.25rem;
-    font-family: var(--font-manrope);
+    font-family: var(--font-IBM), monospace;
     font-weight: bold;
     padding-bottom: .5rem;
     padding-left: .15rem;
@@ -89,9 +106,8 @@ p {
 }
 
 section {
-    padding: var(--padding-mobile);
+    padding: 4rem var(--padding-mobile);
 }
-
 
 img {
     width: 100%;
@@ -133,6 +149,17 @@ html.lenis body {
     transition-behavior: allow-discrete;
 }
 
+
+footer {
+    p {
+        font-family: var(--font-IBM), monospace;
+    }
+
+    a {
+        font-family: var(--font-IBM), monospace;
+
+    }
+}
 
 @media screen and (min-width:760px) {
 

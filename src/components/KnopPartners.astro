@@ -10,8 +10,6 @@ import { Image } from "astro:assets";
 ---
 
 <section class="partnersWrapper" id="partnersWrapper">
-    <div class="subHeading"><p>Unsere Partner (Auswahl)</p></div>
-
     <div class="partnersContent">
         <div class="buttonsWrapper">
             {
@@ -22,22 +20,6 @@ import { Image } from "astro:assets";
                     >
                         {partner.name}
                     </button>
-                ))
-            }
-        </div>
-
-        <div class="imageContainer">
-            {
-                partners.map((partner, index) => (
-                    <Image
-                        src={partner.imgSrc}
-                        alt={`BEsipielbild des Herstellers ${partner.name}`}
-                        class={`partnerImage ${index === 0 ? "active" : ""}`}
-                        data-id={partner.id}
-                        widths={[240, 540, 1400]}
-                        sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
-                        loading="lazy"
-                    />
                 ))
             }
         </div>
@@ -87,63 +69,79 @@ import { Image } from "astro:assets";
                 }
             </div>
         </div>
+
+        <div class="imageWrapper">
+            <div class="imageContainer">
+                {
+                    partners.map((partner, index) => (
+                        <Image
+                            src={partner.imgSrc}
+                            alt={`BEsipielbild des Herstellers ${partner.name}`}
+                            class={`partnerImage ${index === 0 ? "active" : ""}`}
+                            data-id={partner.id}
+                            widths={[240, 540, 1400]}
+                            sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
+                            loading="lazy"
+                        />
+                    ))
+                }
+            </div>
+        </div>
     </div>
 </section>
 
 <style>
     .partnersWrapper {
-        padding-top: var(--padding-desktop);
-        min-height: 100svh;
-        padding-bottom: var(--padding-desktop);
+        padding: 4rem var(--padding-mobile);
         background-color: var(--color-light);
         color: var(--color-dark);
     }
 
     .partnersContent {
-        min-height: 80svh;
-        margin-top: 1rem;
+        border: 1px solid var(--border-color);
     }
 
     .buttonsWrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1px;
-        background-color: #fffffc;
+        background-color: var(--color-light);
     }
 
     button {
-        background-color: #fffffc;
-        outline: 1px solid var(--border-color);
+        background-color: var(--color-light);
         opacity: 0.6;
         cursor: pointer;
-        padding: 0.5rem 0rem;
         color: var(--color-dark);
         transition: opacity 0.2s;
-        text-align: start;
-        padding-left: 1rem;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+    }
+
+    button:nth-child(2n) {
+        border-right: none;
     }
 
     button.active {
         opacity: 1;
         font-weight: bold;
-        outline: 1px solid var(--color-knop-magenta);
+        border-color: var(--color-knop-magenta);
         background-color: var(--color-knop-magenta);
         color: var(--color-light);
     }
 
     .imageContainer {
-        position: relative;
-        overflow: hidden;
         display: grid;
-        grid-template-rows: 100%;
+        overflow: hidden;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        padding: var(--padding-mobile);
     }
 
     .partnerImage {
-        grid-row: 1;
         grid-column: 1;
-        height: 100%;
-        width: 100%;
-        margin-top: 2rem;
+        grid-row: 1;
         opacity: 0;
         pointer-events: none;
         object-fit: cover;
@@ -152,12 +150,13 @@ import { Image } from "astro:assets";
 
     .partnerImage.active {
         pointer-events: auto;
+        display: block;
     }
 
     .descriptionsContainer {
         position: relative;
         height: 100%;
-        min-height: 380px; /* Genug Platz für Text + Zusatzinfos, damit nichts springt */
+        min-height: 380px;
         display: grid;
         grid-template-columns: 1fr;
     }
@@ -168,14 +167,17 @@ import { Image } from "astro:assets";
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100%;
-        width: 100%;
         opacity: 0;
         display: none;
+        padding: var(--padding-mobile);
 
         p {
             padding-bottom: 1.5rem;
             font-size: 1rem;
+        }
+
+        h2 {
+            margin-top: 0;
         }
     }
 
@@ -185,92 +187,127 @@ import { Image } from "astro:assets";
         display: block;
     }
 
-    .textBlock {
-        margin-top: 2rem;
-    }
-
     .infoLeisteContainer {
         display: grid;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-        border-top: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
-    }
 
-    .partnersDescriptionInfo {
-        opacity: 0;
-        grid-column: 1;
-        grid-row: 1;
-        padding: 1rem 0rem;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: space-between;
-        display: none;
+        .partnersDescriptionInfo {
+            opacity: 0;
+            justify-content: space-between;
+            display: none;
+            grid-column: 1;
+            grid-row: 1;
 
-        .infoPoint {
-            display: flex;
-            flex-direction: column;
-            flex-basis: 100%;
-
-            .infoHeading {
-                font-size: 0.9rem;
-                font-weight: 300;
+            .infoPointWrapper {
             }
 
-            .infoText {
-                font-weight: bold;
+            .infoPoint {
+                display: flex;
+                flex-direction: column;
+                flex: 50%;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+
+                border: 1px solid var(--border-color);
+
+                .infoHeading {
+                    font-size: 0.9rem;
+                    font-weight: 300;
+                    margin-bottom: 0.5rem;
+                }
+
+                .infoText {
+                    font-weight: bold;
+                }
+
+                p {
+                    font-size: clamp(0.5rem, 4vw, 1.15rem);
+                }
             }
 
-            p {
-                font-size: 1rem;
+            .infoPoint:nth-child(2n) {
+                border-left: none;
+                border-right: none;
+            }
+
+            .infoPoint:nth-child(1n) {
+                border-left: none;
+            }
+            .infoPoint:nth-child(n + 3) {
+                border-top: none;
             }
         }
     }
 
     .partnersDescriptionInfo.active {
         opacity: 1;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
-    @media screen and (min-width: 800px) {
+    .textBlock {
+        padding: 2rem var(--padding-mobile);
+    }
+
+    @media screen and (min-width: 900px) {
         button {
             text-align: center;
             padding-left: 0;
         }
 
-        .subHeading {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
+        button {
+            background-color: var(--color-light);
+            border: 1px solid var(--border-color);
+            opacity: 0.6;
+            cursor: pointer;
+            color: var(--color-dark);
+            transition: opacity 0.2s;
+            text-align: center;
+            padding: 1rem;
+            border-top: none;
+        }
 
-            p {
-                grid-column: 8/13;
-                border-bottom: 1px solid var(--color-knop-magenta);
-            }
+        button:nth-child(2n) {
+            border-left: none;
+            border-right: none;
+        }
+        button:last-of-type {
+            border-right: none;
         }
 
         .partnersWrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-top: var(--padding-tablet);
+            padding: var(--padding-tablet);
         }
 
         .partnersContent {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: 125px;
         }
 
         .buttonsWrapper {
-            grid-column: 8/13;
-            grid-template-columns: repeat(3, 1fr);
+            grid-column: 1/13;
+            grid-row: 1;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .imageWrapper {
+            border-right: 1px solid var(--border-color);
+            grid-column: 1/8;
+            grid-row: 2;
+            display: grid;
+            grid-template-columns: subgrid;
+            align-items: center;
+            height: 100%;
         }
 
         .imageContainer {
-            grid-column: 1/7;
-            grid-row: 1/3;
-            width: 100%;
-            height: 100%;
+            grid-column: 2/7;
 
             .partnerImage {
                 margin: 0;
@@ -291,7 +328,8 @@ import { Image } from "astro:assets";
 
         .partnersDescription {
             h2 {
-                margin: 2rem 0rem;
+                margin: 0rem 0rem 2rem 0rem;
+                font-size: 3rem;
             }
         }
 
@@ -312,37 +350,48 @@ import { Image } from "astro:assets";
 
         .partnersWrapper {
             height: auto;
+            padding: var(--padding-tablet);
         }
 
-        .partnersContent {
-            min-height: 650px;
-        }
-
-        @media screen and (min-width: 1450px) {
+        @media screen and (min-width: 1600px) {
+            .partnersWrapper {
+                padding: var(--padding-desktop);
+            }
+            .imageContainer {
+                padding: var(--padding-desktop) 0;
+            }
             .partnersDescription {
+                padding: 4rem;
+
                 p {
                     font-size: 1.15rem;
                 }
-            }
 
-            .partnersDescriptionInfo {
-                .infoPoint {
-                    flex-basis: unset;
+                &.active {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
 
-            .partnersDescriptionWrapper {
-                grid-column: 9/13;
-            }
-
-            .buttonsWrapper {
-                grid-column: 9/13;
-            }
-
-            .subHeading {
-                p {
-                    grid-column: 9/13;
+            .infoLeisteContainer {
+                .partnersDescriptionInfo {
+                    .infoPoint:nth-child(n + 3) {
+                        border-bottom: none;
+                    }
                 }
+            }
+            .textBlock {
+                padding: 0;
+            }
+        }
+
+        @media screen and (min-width: 2000px) {
+            .partnersDescription {
+                padding: var(--padding-desktop);
+            }
+            .descriptionsContainer {
+                min-height: 550px;
             }
         }
     }
@@ -356,7 +405,7 @@ import { Image } from "astro:assets";
         .querySelector(".partnerBtn.active")
         ?.getAttribute("data-partner");
 
-    // Initialen Zustand für das ALLERERSTE Element setzen, damit es beim Laden sichtbar ist
+    //Initialen Zustand für das ALLERERSTE Element setzen, damit es beim Laden sichtbar ist
     gsap.set(
         [
             ".partnerImage.active",
@@ -406,28 +455,26 @@ import { Image } from "astro:assets";
                     y: -15,
                     duration: 0.2,
                     ease: "power2.in",
-                    onComplete: () => {
-                        // Klassen erst entfernen, WENN die Animation vorbei ist
-                        activeImg.classList.remove("active");
-                        activeDesc.classList.remove("active");
-                        activeInfo.classList.remove("active");
-                    },
                 });
             }
 
-            // 2. Neues Zeug einfaden
+            tl.call(() => {
+                activeImg?.classList.remove("active");
+                activeDesc?.classList.remove("active");
+                activeInfo?.classList.remove("active");
+
+                if (nextImg && nextDesc && nextInfo) {
+                    gsap.set([nextImg, nextDesc, nextInfo], {
+                        y: 15,
+                        opacity: 0,
+                    });
+                    nextImg.classList.add("active");
+                    nextDesc.classList.add("active");
+                    nextInfo.classList.add("active");
+                }
+            });
+
             if (nextImg && nextDesc && nextInfo) {
-                // WICHTIG: Wir zwingen GSAP DIREKT dazu, die Elemente unsichtbar auf Startposition zu setzen,
-                // BEVOR wir die Klassen hinzufügen. Das verhindert das Aufblitzen komplett!
-                gsap.set([nextImg, nextDesc, nextInfo], {
-                    y: 15,
-                    opacity: 0,
-                });
-
-                nextImg.classList.add("active");
-                nextDesc.classList.add("active");
-                nextInfo.classList.add("active");
-
                 tl.to([nextImg, nextDesc, nextInfo], {
                     opacity: 1,
                     y: 0,
@@ -435,7 +482,7 @@ import { Image } from "astro:assets";
                     ease: "power2.out",
                 });
 
-                // Micro-Animation für innere Texte
+                //Micro-Animation für innere Texte
                 const textElements = nextDesc.querySelectorAll("h2, p");
                 const infoPoints = nextInfo.querySelectorAll(".infoPoint");
 
