@@ -28,22 +28,29 @@ export default defineConfig({
       }
     },
 
+
     {
       provider: fontProviders.local(),
-      name: "IBM Plex Mono",
-      cssVariable: "--font-IBM",
+      name: "IBM Plex Sans",
+      cssVariable: "--font-IBM-Sans",
       options: {
         variants: [
-          { src: ['./src/assets/fonts/IBMPlexMono-Thin.ttf'], weight: 100, style: 'normal' },
-          { src: ['./src/assets/fonts/IBMPlexMono-ExtraLight.ttf'], weight: 200, style: 'normal' },
-          { src: ['./src/assets/fonts/IBMPlexMono-Light.ttf'], weight: 300, style: 'normal' },
-          { src: ['./src/assets/fonts/IBMPlexMono-Regular.ttf'], weight: 400, style: 'normal' },
-          { src: ['./src/assets/fonts/IBMPlexMono-Medium.ttf'], weight: 500, style: 'normal' },
-          { src: ['./src/assets/fonts/IBMPlexMono-SemiBold.ttf'], weight: 600, style: 'normal' },
-          { src: ['./src/assets/fonts/IBMPlexMono-Bold.ttf'], weight: 700, style: 'normal' },
+          {
+            // Die normale variable TTF-Schrift
+            src: ['./src/assets/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf'],
+            weight: '100 700',
+            style: 'normal'
+          },
+          {
+            // Die variable Italic TTF-Schrift
+            src: ['./src/assets/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf'],
+            weight: '100 700',
+            style: 'italic'
+          }
         ]
       }
     },
+
   ],
 
 

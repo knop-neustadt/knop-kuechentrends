@@ -11,6 +11,10 @@
     --padding-desktop: 8rem;
     --padding-mobile: 1rem;
     --padding-tablet: 2rem;
+    --padding-top: calc(8svh + 2rem);
+    --column-width-desktop:calc((100vw - (var(--padding-desktop) * 2)) / 12);
+    --column-width-tablet:calc((100vw - (var(--padding-tablet) * 2)) / 12);
+    --column-width-mobile:calc((100vw - (var(--padding-mobile) * 2)) / 12);
     --border-radius: 10px;
     --border-radius-mobile: 5px;
     --border-color: rgb(204, 204, 204);
@@ -35,7 +39,7 @@ body {
 main {
     min-height: 100svh;
     font-size: 1rem;
-    font-family: var(--font-IBM), monospace;
+    font-family: var(--font-IBM-Sans), sans-serif;
 }
 
 h1,
@@ -79,7 +83,7 @@ nav {
 
         a,
         div {
-            font-family: var(--font-IBM), monospace;
+            font-family: var(--font-IBM-Sans), sans-serif;
 
         }
     }
@@ -88,13 +92,13 @@ nav {
 }
 
 a {
-    font-family: var(--font-IBM), monospace;
+    font-family: var(--font-IBM-Sans), sans-serif;
 
 }
 
 .subHeading {
     font-size: 1.25rem;
-    font-family: var(--font-IBM), monospace;
+    font-family: var(--font-IBM-Sans), sans-serif;
     font-weight: bold;
     padding-bottom: .5rem;
     padding-left: .15rem;
@@ -149,14 +153,19 @@ html.lenis body {
     transition-behavior: allow-discrete;
 }
 
+.container{
+    max-width: var(--max-width);
+    margin: auto;
+}
+
 
 footer {
     p {
-        font-family: var(--font-IBM), monospace;
+        font-family: var(--font-IBM-Sans), sans-serif;
     }
 
     a {
-        font-family: var(--font-IBM), monospace;
+        font-family: var(--font-IBM-Sans), sans-serif;
 
     }
 }

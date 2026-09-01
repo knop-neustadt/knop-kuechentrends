@@ -6,46 +6,54 @@ import Image from "astro/components/Image.astro";
 <section class="contactSection" id="contactSection">
     <div class="contactWrapper" id="contactWrapper">
         <div class="formLeft">
-            <div class="contactGreeting">
-                <h2>Kontaktieren Sie uns!</h2>
-                <p>
-                    Wir sind für Sie da, wenn Sie Fragen haben oder eine
-                    Beratung brauchen.
-                </p>
-            </div>
-            <form action="https://api.web3forms.com/submit" method="POST">
-                <input
-                    type="hidden"
-                    name="access_key"
-                    value="674c350f-81d6-4780-bedd-db6eb6f08a74"
-                />
-                <div class="formInput">
-                    <label for="name">Name:*</label>
-                    <input type="text" id="name" name="name" required />
+            <div class="formLeftContent">
+                <div class="contactGreeting">
+                    <h2>Kontaktieren Sie uns!</h2>
+                    <p>
+                        Wir sind für Sie da, wenn Sie Fragen haben oder eine
+                        Beratung brauchen.
+                    </p>
                 </div>
-                <div class="formInput">
-                    <label for="email">E-Mail:*</label>
-                    <input type="email" id="email" name="email" required />
-                </div>
-                <div class="formInput">
-                    <label for="number">Telefonnummer:</label>
+                <form action="https://api.web3forms.com/submit" method="POST">
                     <input
-                        type="text"
-                        id="number"
-                        name="Phone Number"
-                        required
+                        type="hidden"
+                        name="access_key"
+                        value="674c350f-81d6-4780-bedd-db6eb6f08a74"
                     />
-                </div>
-                <div class="formInput">
-                    <label for="subject">Betreff:*</label>
-                    <input type="text" id="subject" name="subject" required />
-                </div>
-                <div class="formInput">
-                    <label for="message">Ihre Nachricht:*</label>
-                    <textarea name="message" id="message" required></textarea>
-                </div>
-                <button type="submit">Absenden</button>
-            </form>
+                    <div class="formInput">
+                        <label for="name">Name:*</label>
+                        <input type="text" id="name" name="name" required />
+                    </div>
+                    <div class="formInput">
+                        <label for="email">E-Mail:*</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+                    <div class="formInput">
+                        <label for="number">Telefonnummer:</label>
+                        <input
+                            type="text"
+                            id="number"
+                            name="Phone Number"
+                            required
+                        />
+                    </div>
+                    <div class="formInput">
+                        <label for="subject">Betreff:*</label>
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            required
+                        />
+                    </div>
+                    <div class="formInput">
+                        <label for="message">Ihre Nachricht:*</label>
+                        <textarea name="message" id="message" required
+                        ></textarea>
+                    </div>
+                    <button type="submit">Absenden</button>
+                </form>
+            </div>
         </div>
         <Image
             src={contactPicture}
@@ -68,7 +76,15 @@ import Image from "astro/components/Image.astro";
     textarea,
     button {
         border: 1px solid var(--color-dark);
+        transition: all ease-in-out 0.3s;
         padding: 1rem;
+        font-size: 1.25rem;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: var(--color-knop-magenta);
+        outline: none;
     }
 
     button {
@@ -117,21 +133,27 @@ import Image from "astro/components/Image.astro";
     }
     @media screen and (min-width: 760px) {
         .contactSection {
-            min-height: 60vh;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .contactWrapper {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            /* Stretch sorgt dafür, dass linke und rechte Spalte EXAKT gleich hoch sind */
-            align-items: stretch;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            justify-content: center;
+            align-items: center;
         }
 
         .formLeft {
-            width: 50%;
+            grid-column: 1/7;
             display: flex;
             flex-direction: column;
+        }
+
+        .formLeftContent {
+            padding-right: var(--column-width-tablet);
         }
 
         form {
@@ -159,19 +181,29 @@ import Image from "astro/components/Image.astro";
         }
 
         img {
-            width: 50%;
-            height: 100%;
-            aspect-ratio: auto; /* Auf Desktop füllt das Bild die Höhe dynamisch an */
             padding: 0;
-            object-fit: cover; /* Schneidet das Bild sauber zu, damit nichts verzerrt */
-            object-position: top;
+            grid-column: 7/13;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
         }
     }
 
     @media screen and (min-width: 1450px) {
-        .contactWrapper {
-            gap: var(--padding-desktop);
-            height: 85vh;
+        .formLeftContent {
+            padding-right: var(--column-width-desktop);
+        }
+
+        img{
+            grid-column: 8/12;
+
+        }
+    }
+
+    @media screen and (min-width: 1800px) {
+        .formLeftContent {
+            padding: 0 var(--column-width-desktop);
         }
     }
 </style>
