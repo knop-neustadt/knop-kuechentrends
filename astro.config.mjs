@@ -5,46 +5,22 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   fonts: [
-
     {
       provider: fontProviders.local(),
-      name: "Alumni Sans",
-      cssVariable: "--font-alumni",
+      name: "Switzer",
+      cssVariable: "--font-switzer",
       options: {
         variants: [
           {
             // Die normale variable TTF-Schrift
-            src: ['./src/assets/fonts/AlumniSans-VariableFont_wght.ttf'],
+            src: ['./src/assets/fonts/Switzer-Variable.ttf'],
             weight: '100 900',
             style: 'normal'
           },
           {
             // Die variable Italic TTF-Schrift
-            src: ['./src/assets/fonts/AlumniSans-Italic-VariableFont_wght.ttf'],
+            src: ['./src/assets/fonts/Switzer-VariableItalic.ttf'],
             weight: '100 900',
-            style: 'italic'
-          }
-        ]
-      }
-    },
-
-
-    {
-      provider: fontProviders.local(),
-      name: "IBM Plex Sans",
-      cssVariable: "--font-IBM-Sans",
-      options: {
-        variants: [
-          {
-            // Die normale variable TTF-Schrift
-            src: ['./src/assets/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf'],
-            weight: '100 700',
-            style: 'normal'
-          },
-          {
-            // Die variable Italic TTF-Schrift
-            src: ['./src/assets/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf'],
-            weight: '100 700',
             style: 'italic'
           }
         ]

@@ -3,13 +3,27 @@ import { Image } from "astro:assets";
 import { getImage } from "astro:assets";
 import "photoswipe/style.css";
 
-// 1. Alle Bilder automatisch per Vite glob importieren
-const imageModules = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/images/kueche/galerie/*.{jpeg,jpg,png,webp}",
+interface Props {
+    altText: string;
+    imagePathGewerk: string;
+}
+
+const { altText = "", imagePathGewerk = "" } = Astro.props;
+
+// 1. Statischer Glob-Pfad – Vite kann hier KEINE Variable akzeptieren,
+//    also laden wir per Wildcard "*" alle Gewerk-Ordner auf einmal.
+const allImageModules = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/images/*/galerie/*.{jpeg,jpg,png,webp}",
     { eager: true },
 );
 
-// 2. Metadaten aus dem Dateinamen parsen
+// 2. Zur Laufzeit auf den gewünschten Gewerk-Ordner filtern
+const imageModules = Object.fromEntries(
+    Object.entries(allImageModules).filter(([filepath]) =>
+        filepath.startsWith(`/src/assets/images/${imagePathGewerk}/galerie/`),
+    ),
+);
+
 const galleryItems = await Promise.all(
     Object.entries(imageModules).map(async ([filepath, module], index) => {
         const originalImage = module.default;
@@ -35,12 +49,12 @@ const galleryItems = await Promise.all(
             .replace(/\s+/g, " ")
             .trim();
 
-        const alt = `Küchenstudio Referenz: ${title} (${category})`;
+        const alt = `${title} – ${altText}`;
 
         // Originalgröße
         const { width, height } = originalImage;
 
-        // NEU: sehr kleines Hintergrundbild erzeugen
+        // Sehr kleines Hintergrundbild (Blur-Placeholder)
         const placeholder = await getImage({
             src: originalImage,
             width: Math.round(width / 1000),
@@ -67,7 +81,7 @@ const galleryItems = await Promise.all(
 
         return {
             image: module.default,
-            placeholder, // NEU
+            placeholder,
             title,
             category,
             alt,
@@ -77,60 +91,114 @@ const galleryItems = await Promise.all(
 );
 ---
 
-<section>
-    <div
-        id="kuechen-gallery"
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 grid-flow-dense"
-    >
-        {
-            galleryItems.map((item) => (
-                <a
-                    href={item.image.src}
-                    data-pswp-width={item.image.width /2}
-                    data-pswp-height={item.image.height /2}
-                    target="_blank"
-                    class={`group relative block overflow-hidden bg-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 galleryImageLink ${item.spanClasses}`}
-                    style={`background-image: url(${item.placeholder.src}); background-size: cover; background-position: center; backdrop-filter: blur(10px);`}
-                >
-                    <Image
-                        src={item.image}
-                        alt={item.alt}
-                        width={item.image.width / 4}
-                        height={item.image.height / 4}
-                        format="webp"
-                        class={`w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
-                            item.spanClasses.includes("row-span-2")
-                                ? "h-[36.75rem]"
-                                : "h-72"
-                        }`}
-                    />
+<div
+    id="kuechen-gallery"
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 grid-flow-dense"
+>
+    {
+        galleryItems.map((item) => (
+            <a
+                href={item.image.src}
+                data-pswp-width={item.image.width / 1.5}
+                data-pswp-height={item.image.height / 1.5}
+                target="_blank"
+                class={`group relative block overflow-hidden bg-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg galleryImageLink ${item.spanClasses}`}
+                style={`background-image: url(${item.placeholder.src}); background-size: cover; background-position: center; backdrop-filter: blur(10px);`}
+            >
+                <Image
+                    src={item.image}
+                    alt={item.alt}
+                    width={item.image.width / 4}
+                    height={item.image.height / 4}
+                    format="webp"
+                    class={`w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
+                        item.spanClasses.includes("row-span-2")
+                            ? "h-[36.75rem]"
+                            : "h-72"
+                    }`}
+                />
 
-                    <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-5">
-                        <span class="text-sm font-bold uppercase">
-                            {item.category}
-                        </span>
-                        <p class="mt-1 text-sm font-medium text-white line-clamp-2">
-                            {item.title}
-                        </p>
-                    </div>
-                </a>
-            ))
-        }
-    </div>
-</section>
+                <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-5">
+                    <span class="text-sm font-bold uppercase">
+                        {item.category}
+                    </span>
+                    <p class="mt-1 text-sm font-medium text-white line-clamp-2">
+                        {item.title}
+                    </p>
+                </div>
+            </a>
+        ))
+    }
+</div>
 
 <style>
-    section{
-        padding-top: var(--padding-top);
-    }
 
     span {
         color: var(--color-light);
     }
+
+    img {
+        object-fit: cover;
+        object-position: center;
+    }
+    a {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+    }
+
+    a::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        animation: pulse 2.5s infinite;
+    }
+
+    a.loaded > img {
+        opacity: 1;
+        transition: all ease-in-out 0.2s;
+    }
+
+    a.loaded::before {
+        content: none;
+    }
+
+    a > img {
+        opacity: 0;
+    }
+
+    @keyframes pulse {
+        0% {
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        50% {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        100% {
+            background-color: rgba(255, 255, 255, 0);
+        }
+    }
+
 </style>
 
 <script>
     import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+    const blurLinks = document.querySelectorAll("a");
+    blurLinks.forEach((a) => {
+        const img = a.querySelector("img");
+
+        function loaded() {
+            a.classList.add("loaded");
+        }
+
+        if (img?.complete) {
+            loaded();
+        } else {
+            img?.addEventListener("load", loaded);
+        }
+    });
 
     const lightbox = new PhotoSwipeLightbox({
         gallery: "#kuechen-gallery",

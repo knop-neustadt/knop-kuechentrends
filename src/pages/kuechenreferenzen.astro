@@ -1,0 +1,215 @@
+---
+import Layout from "../layouts/Layout.astro";
+import KnopGallery from "../components/KnopGallery.astro";
+import Image from "astro/components/Image.astro";
+import landHausImage from "../assets/images/kueche/galerie/Landhaus_Klassische-Landhausküche-in-Weiß (5).jpg";
+---
+
+<Layout
+    title="Küchenreferenzen aus Neustadt in Holstein | Knop Küchentrends"
+    description="Entdecken Sie Küchenreferenzen von Knop Küchentrends aus Neustadt in Holstein. Moderne Einbauküchen, Landhausküchen, Kücheninseln und individuelle Küchenplanung in Ostholstein."
+    mainClass="kuechenGalerieMain"
+>
+    <div id="pageLoader" class="pageLoader" aria-hidden="true">
+        <div class="loaderSpinner"></div>
+    </div>
+    <section class="kuechenGalerieSection">
+        <div class="welcome">
+            <div class="welcomeText">
+                <h1>Küchen<span>Referenzen</span></h1>
+                <p>
+                    Knop Neustadt verbindet moderne Küchenplanung mit
+                    jahrelanger Erfahrung. In unserem großen Küchenstudio
+                    überzeugen wir Sie mit eleganten Grifflos-, klassischen
+                    Landhaus- oder ausgefallenen Designküchen.
+                </p>
+            </div>
+
+            <div class="welcomeImageContainer">
+                <div class="stylediv"></div>
+                <Image
+                    src={landHausImage}
+                    alt="Bild einer Landhausküche aus der Küchenausstellung"
+                    widths={[240, 540, 1400]}
+                    sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
+                    class="welcomeImage"
+                    loading="eager"
+                    fetchpriority="high"
+                />
+            </div>
+        </div>
+
+        <KnopGallery
+            altText="Küchenreferenz von Knop Küchentrends in Neustadt in Holstein"
+            imagePathGewerk="kueche"
+        />
+    </section>
+</Layout>
+
+<style>
+    .pageLoader {
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: var(--color-dark, #111);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loaderSpinner {
+        width: 48px;
+        height: 48px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        border-top-color: var(--color-knop-magenta);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    span {
+        display: block;
+        color: var(--color-knop-magenta);
+        line-height: 0.8;
+    }
+
+    section {
+        color: var(--color-light);
+    }
+
+    .kuechenGalerieSection {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .welcome {
+        padding-top: var(--padding-top-mobile);
+        height: 100vh;
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        h1 {
+            font-size: clamp(2.5rem, 4.4vw, 7rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            z-index: 1;
+            align-self: end;
+            padding-bottom: 2rem;
+        }
+
+        p {
+            padding-bottom: 1rem;
+            max-width: 480px;
+        }
+    }
+
+    .welcomeImageContainer {
+        flex: 1;
+        overflow: hidden;
+
+        .stylediv {
+            height: 100%;
+            width: 100%;
+            background-color: var(--color-dark);
+        }
+
+        .welcomeImage {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .welcome {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            padding-bottom: 2rem;
+            height: 100vh;
+            padding-top: var(--padding-top-desktop);
+
+            p,
+            .welcomeImageContainer {
+                padding-bottom: 0;
+            }
+        }
+
+        p {
+            max-width: unset;
+        }
+
+        .welcomeText {
+            grid-column: 9/13;
+            grid-row: 6;
+            align-self: end;
+        }
+
+        .welcomeImageContainer {
+            grid-column: 1/9;
+            grid-row: 1/7;
+            z-index: 0;
+            height: 100%;
+        }
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    const loader = document.getElementById("pageLoader");
+    const welcomeImage = document.querySelector(
+        ".welcomeImage",
+    ) as HTMLImageElement;
+
+    const stylediv = document.querySelector(".stylediv");
+     
+
+    document.documentElement.style.overflow = "hidden";
+
+    const start = performance.now();
+    const MIN_DISPLAY_TIME = 300;
+
+    function hideLoader() {
+        const elapsed = performance.now() - start;
+        const delay = Math.max(0, MIN_DISPLAY_TIME - elapsed);
+
+        setTimeout(() => {
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    loader?.remove();
+                    document.documentElement.style.overflow = "";
+                },
+            });
+
+            tl.to(loader, {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out",
+            }).to(
+                welcomeImage,
+                {
+                    y: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                },
+                "<", // "<" = startet gleichzeitig mit der vorherigen Animation
+            );
+        }, delay);
+    }
+
+    if (welcomeImage?.complete) {
+        hideLoader();
+    } else {
+        welcomeImage?.addEventListener("load", hideLoader);
+        welcomeImage?.addEventListener("error", hideLoader);
+    }
+</script>

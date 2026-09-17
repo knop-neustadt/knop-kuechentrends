@@ -41,15 +41,32 @@ const {
 		/>
 		<meta name="apple-mobile-web-app-title" content="Knop-Küchen" />
 		<link rel="manifest" href="/site.webmanifest" />
-		
+
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		{noindex && <meta name="robots" content="noindex, follow" />}
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image} />
 		<title>{title}</title>
-		<Font cssVariable="--font-alumni" preload />
-		<Font cssVariable="--font-IBM-Sans" preload />
+		<Font cssVariable="--font-switzer" preload />
+
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "FurnitureStore",
+				name: "Knop Küchentrends GmbH",
+				url: "https://knop-kuechentrends.de/",
+				telephone: "+49 4561 397933",
+				address: {
+					"@type": "PostalAddress",
+					streetAddress: "Wagrienring 12-14",
+					postalCode: "23730",
+					addressLocality: "Sierksdorf",
+					addressCountry: "DE",
+				},
+			})}
+		/>
 	</head>
 
 	<body>

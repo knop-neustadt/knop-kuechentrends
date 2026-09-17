@@ -130,6 +130,8 @@ import Location from "../assets/svgs/Location.svg";
         font-size: 1rem;
         margin-top: auto;
 
+
+
         p {
             font-size: 1rem;
         }
@@ -139,11 +141,13 @@ import Location from "../assets/svgs/Location.svg";
         }
 
         h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.5rem, 6vw, 2rem);
             color: var(--color-light);
             margin-bottom: 0.5rem;
             opacity: 1;
-            font-weight: 700;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: capitalize;
         }
 
         .footerLinkWrapper {
