@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import KnopGallery from "../components/KnopGallery.astro";
 import Image from "astro/components/Image.astro";
-import landHausImage from "../assets/images/kueche/galerie/Landhaus_Klassische-Landhausküche-in-Weiß (5).jpg";
+import landHausImage from "../assets/images/kueche/galerie/Landhaus_Moderne Landhausküche in Anhtrazit und Holz 2.jpg";
 ---
 
 <Layout
@@ -42,6 +42,7 @@ import landHausImage from "../assets/images/kueche/galerie/Landhaus_Klassische-L
         <KnopGallery
             altText="Küchenreferenz von Knop Küchentrends in Neustadt in Holstein"
             imagePathGewerk="kueche"
+            class:list="p"
         />
     </section>
 </Layout>
@@ -95,7 +96,7 @@ import landHausImage from "../assets/images/kueche/galerie/Landhaus_Klassische-L
         flex-direction: column;
         justify-content: space-between;
         h1 {
-            font-size: clamp(2.5rem, 4.4vw, 7rem);
+            font-size: clamp(2.5rem, 4.1vw, 7rem);
             font-weight: 900;
             text-transform: uppercase;
             line-height: 1;
@@ -105,19 +106,26 @@ import landHausImage from "../assets/images/kueche/galerie/Landhaus_Klassische-L
         }
 
         p {
-            padding-bottom: 1rem;
             max-width: 480px;
         }
+    }
+
+    .welcomeText {
+        padding-bottom: 1rem;
     }
 
     .welcomeImageContainer {
         flex: 1;
         overflow: hidden;
+        position: relative;
 
         .stylediv {
             height: 100%;
             width: 100%;
             background-color: var(--color-dark);
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .welcomeImage {
@@ -165,13 +173,23 @@ import landHausImage from "../assets/images/kueche/galerie/Landhaus_Klassische-L
 <script>
     import { gsap } from "gsap";
 
+    import { SplitText } from "gsap/SplitText";
+    gsap.registerPlugin(SplitText);
+
+    const welcomeText = document.querySelector(".welcomeText");
+
+    const splitWelcomeText = new SplitText(welcomeText, {
+        type: "lines",
+        mask: "lines",
+        aria: "none",
+    });
+
     const loader = document.getElementById("pageLoader");
     const welcomeImage = document.querySelector(
         ".welcomeImage",
     ) as HTMLImageElement;
 
     const stylediv = document.querySelector(".stylediv");
-     
 
     document.documentElement.style.overflow = "hidden";
 
@@ -192,16 +210,23 @@ import landHausImage from "../assets/images/kueche/galerie/Landhaus_Klassische-L
 
             tl.to(loader, {
                 opacity: 0,
-                duration: 0.5,
+                duration: 0.1,
                 ease: "power2.out",
-            }).to(
-                welcomeImage,
-                {
-                    y: 0,
-                    duration: 1,
-                    ease: "power2.out",
+            })
+                .to(stylediv, {
+                    height: 0,
+                    duration: 0.8,
+                    ease: "power3.inOut",
+                })
+                .from(splitWelcomeText.lines, {
+                    y: -10,
+                    stagger: 0.06,
+                    duration: 0.4,
+                    opacity: 0,
+                    transformOrigin: "center top",
+                    ease: "power3.inOut",
                 },
-                "<", // "<" = startet gleichzeitig mit der vorherigen Animation
+                "<0.2"
             );
         }, delay);
     }
