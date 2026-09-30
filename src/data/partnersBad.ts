@@ -5,9 +5,6 @@ import ballerinaImg from "../assets/images/kueche/ballerina.jpg";
 import mieleImg from "../assets/images/kueche/Miele.jpg";
 import nobiliaImg from "../assets/images/kueche/nobilia.jpeg";
 
-
-
-
 export const partners =
   [
     {

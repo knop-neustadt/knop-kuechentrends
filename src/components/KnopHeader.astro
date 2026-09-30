@@ -2,6 +2,18 @@
 import { Image } from "astro:assets";
 import logoWhite from "../assets/images/KK_Logo_weiß.png";
 import logoPink from "../assets/images/web-app-manifest-512x512.png";
+
+interface Props{
+    galleryLink:string
+}
+
+const {galleryLink} =Astro.props
+
+const pathname = Astro.url.pathname;
+const segments = pathname.split('/').filter(Boolean);
+const currentFolder = segments[0] ? `/${segments[0]}` : '';
+
+
 ---
 
 <div id="nav-overlay" class="nav-overlay"></div>
@@ -53,10 +65,10 @@ import logoPink from "../assets/images/web-app-manifest-512x512.png";
     </div>
 
     <ul class="nav-links">
-        <li><a href="/#partnersWrapper" class="nav-link">Hersteller</a></li>
-        <li><a href="/#processWrapper" class="nav-link">Ablauf</a></li>
-        <li><a href="/#contactWrapper" class="nav-link">Kontakt</a></li>
-        <li><a href="/kuechenreferenzen" class="nav-link">Galerie</a></li>
+        <li><a href=`${currentFolder}#partnersWrapper` class="nav-link">Hersteller</a></li>
+        <li><a href=`${currentFolder}#processWrapper` class="nav-link">Ablauf</a></li>
+        <li><a href=`${currentFolder}#contactWrapper` class="nav-link">Kontakt</a></li>
+        <li><a href=`${currentFolder}/gallery` class="nav-link">Galerie</a></li>
 
         <li>
             <a
@@ -148,7 +160,7 @@ import logoPink from "../assets/images/web-app-manifest-512x512.png";
         flex-direction: column;
         transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         overflow: hidden;
-
+        max-width: var(--max-width);
 
     }
 

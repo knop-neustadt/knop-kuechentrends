@@ -1,0 +1,28 @@
+---
+import KnopGalleryWelcome from "../../components/KnopGalleryWelcome.astro";
+import Layout from "../../layouts/Layout.astro";
+import welcomePicture from "../../assets/images/bad/galerie/DSC04330.jpg";
+import KnopGallery from "../../components/KnopGallery.astro";
+---
+
+<Layout title="Badreferenzen" description="" mainClass="badGalerieMain">
+    <KnopGalleryWelcome
+      heading="Bad"
+      text="Knop Neustadt verbindet moderne Küchenplanung mit jahrelanger Erfahrung.
+      In unserem großen Küchenstudio überzeugen wir Sie mit eleganten Grifflos-,
+      klassischen Landhaus- oder ausgefallenen Designküchen."
+      image={welcomePicture}
+    />
+
+    <KnopGallery
+      altText="Küchenreferenz von Knop Küchentrends in Neustadt in Holstein"
+      imagePathGewerk="bad"
+      class:list="kuechen-gallery"
+    />
+</Layout>
+
+<style>
+  section {
+    color: var(--color-light);
+  }
+</style>

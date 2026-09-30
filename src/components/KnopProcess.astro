@@ -8,243 +8,250 @@ import arbeistplatten from "../assets/images/kueche/Arbeitsplatten.jpg";
 import ecki from "../assets/images/kueche/ecki.jpg";
 ---
 
-<section class="processWrapper" id="processWrapper">
+<section class="processSection" id="processSection">
+  <div class="processWrapper" id="processWrapper">
     <div class="subHeading"><p>Ablauf</p></div>
-
     <div class="collapse collapse-plus bg-base-100">
-        <input
-            type="checkbox"
-            name="my-accordion-1"
-            checked
-            aria-label="Punkt 1 aufklappen"
-        />
-        <div class="collapse-title font-semibold">
-            <p>1</p>
-            <h2>Beratung und Planung</h2>
+      <input
+        type="checkbox"
+        name="my-accordion-1"
+        checked
+        aria-label="Punkt 1 aufklappen"
+      />
+      <div class="collapse-title font-semibold">
+        <p class="processNumber">1</p>
+        <h2>Beratung und Planung</h2>
+      </div>
+      <div class="collapse-content text-sm">
+        <div class="contentSpacing">
+          <p>
+            Ob kompakte Single-Küche, behaglich-rustikaler Landhausstil oder
+            grifflose Design-Lösung: In unserem fast 1.000 m&sup2; großen
+            Küchenstudio im Wagrienring bringen wir Ihre Ideen zum Leben. Wir
+            nehmen uns Zeit für Sie und planen Ihre Traumküche bis ins kleinste
+            Detail mittels modernster digitaler 3D-Visualisierung.
+          </p>
+          <Image
+            src={arbeistplatten}
+            alt="Ein Bild von drei Arbeitsplattenmustern."
+            class="collapseImage"
+            widths={[240, 540, 1400]}
+            sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
+            loading="eager"
+          />
         </div>
-        <div class="collapse-content text-sm">
-            <div class="contentSpacing">
-                <p>
-                    Ob kompakte Single-Küche, behaglich-rustikaler Landhausstil
-                    oder grifflose Design-Lösung: In unserem fast 1.000 m&sup2;
-                    großen Küchenstudio im Wagrienring bringen wir Ihre Ideen
-                    zum Leben. Wir nehmen uns Zeit für Sie und planen Ihre
-                    Traumküche bis ins kleinste Detail mittels modernster
-                    digitaler 3D-Visualisierung.
-                </p>
-
-                <Image
-                    src={arbeistplatten}
-                    alt="Ein Bild von drei Arbeitsplattenmustern."
-                    class="collapseImage"
-                    widths={[240, 540, 1400]}
-                    sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
-                    loading="eager"
-                />
-            </div>
-        </div>
+      </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input
-            type="checkbox"
-            name="my-accordion-1"
-            aria-label="Punkt 2 aufklappen"
-        />
-        <div class="collapse-title font-semibold">
-            <p>2</p>
-
-            <h2>Aufmaß des Raumes</h2>
+      <input
+        type="checkbox"
+        name="my-accordion-1"
+        aria-label="Punkt 2 aufklappen"
+      />
+      <div class="collapse-title font-semibold">
+        <p class="processNumber">2</p>
+        <h2>Aufmaß des Raumes</h2>
+      </div>
+      <div class="collapse-content text-sm">
+        <div class="contentSpacing">
+          <p>
+            Damit am Tag der Montage alles perfekt sitzt, überlassen wir nichts
+            dem Zufall. Unsere Profis kommen direkt zu Ihnen nach Hause in
+            Neustadt und Umgebung, um den Raum zentimeter- und winkelgenau zu
+            vermessen. Dabei prüfen wir nicht nur die reinen Wandmaße, sondern
+            erfassen auch alle Anschlüsse für Wasser, Abwasser und Strom sowie
+            Fenster- und Türöffnungen.
+          </p>
+          <Image
+            src={aufmass}
+            alt="Ein Bild von zwei Handwerkern, die einen Raum vermessen."
+            class="collapseImage"
+            widths={[400, 600, 800, 1200]}
+            loading="eager"
+          />
         </div>
-        <div class="collapse-content text-sm">
-            <div class="contentSpacing">
-                <p>
-                    Damit am Tag der Montage alles perfekt sitzt, überlassen wir
-                    nichts dem Zufall. Unsere Profis kommen direkt zu Ihnen nach
-                    Hause in Neustadt und Umgebung, um den Raum zentimeter- und
-                    winkelgenau zu vermessen. Dabei prüfen wir nicht nur die
-                    reinen Wandmaße, sondern erfassen auch alle Anschlüsse für
-                    Wasser, Abwasser und Strom sowie Fenster- und Türöffnungen.
-                </p>
-
-                <Image
-                    src={aufmass}
-                    alt="Ein Bild von zwei Handwerkern, die einen Raum vermessen."
-                    class="collapseImage"
-                    widths={[400, 600, 800, 1200]}
-                    loading="eager"
-                />
-            </div>
-        </div>
+      </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input
-            type="checkbox"
-            name="my-accordion-1"
-            aria-label="Punkt 3 aufklappen"
-        />
-        <div class="collapse-title font-semibold">
-            <p>3</p>
-            <h2>Lieferung und Montage</h2>
+      <input
+        type="checkbox"
+        name="my-accordion-1"
+        aria-label="Punkt 3 aufklappen"
+      />
+      <div class="collapse-title font-semibold">
+        <p class="processNumber">3</p>
+        <h2>Lieferung und Montage</h2>
+      </div>
+      <div class="collapse-content text-sm">
+        <div class="contentSpacing">
+          <p>
+            Die Montage einer Küche erfordert echte Handwerkskunst. Deshalb
+            schicken wir keine Subunternehmer, sondern unsere eigenen,
+            erfahrenen Teams zu Ihnen. Von der millimetergenauen Ausrichtung der
+            Schränke über den präzisen Einpass von Arbeitsplatten bis hin zum
+            fachgerechten Anschluss modernster Hightech-Elektrogeräte: Wir
+            montieren sauber, pünktlich und bezugsfertig.
+          </p>
+          <Image
+            src={ecki}
+            alt="Ein Bild von zwei Handwerkern, die eine Küche montieren."
+            class="collapseImage"
+            widths={[240, 540, 1000]}
+            sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1000px"
+            loading="eager"
+            inferSize
+          />
         </div>
-        <div class="collapse-content text-sm">
-            <div class="contentSpacing">
-                <p>
-                    Die Montage einer Küche erfordert echte Handwerkskunst.
-                    Deshalb schicken wir keine Subunternehmer, sondern unsere
-                    eigenen, erfahrenen Teams zu Ihnen. Von der
-                    millimetergenauen Ausrichtung der Schränke über den präzisen
-                    Einpass von Arbeitsplatten bis hin zum fachgerechten
-                    Anschluss modernster Hightech-Elektrogeräte: Wir montieren
-                    sauber, pünktlich und bezugsfertig.
-                </p>
-
-                <Image
-                    src={ecki}
-                    alt="Ein Bild von zwei Handwerkern, die eine Küche montieren."
-                    class="collapseImage"
-                    widths={[240, 540, 1000]}
-                    sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1000px"
-                    loading="eager"
-                    inferSize
-                />
-            </div>
-        </div>
+      </div>
     </div>
     <div class="collapse collapse-plus bg-base-100">
-        <input
-            type="checkbox"
-            name="my-accordion-1"
-            aria-label="Punkt 4 aufklappen"
-        />
-        <div class="collapse-title font-semibold">
-            <p>4</p>
-            <h2>Entsorgung der alten Küche</h2>
+      <input
+        type="checkbox"
+        name="my-accordion-1"
+        aria-label="Punkt 4 aufklappen"
+      />
+      <div class="collapse-title font-semibold">
+        <p class="processNumber">4</p>
+        <h2>Entsorgung der alten Küche</h2>
+      </div>
+      <div class="collapse-content text-sm">
+        <div class="contentSpacing">
+          <p>
+            Ob kleine Nische, oder große Küche im Landhausstil. Natürlich
+            kümmern wir uns auch um den Abbau und die fachgerechte Entsorgung
+            ihrer alten Küchenmöbel und Elektrogeräte.
+          </p>
+          <Image
+            src={kuecheLandhaus}
+            alt="Ein Bild einer Landhausküche von Knop Neustadt."
+            class="collapseImage"
+            widths={[240, 540, 1400]}
+            sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
+            loading="eager"
+          />
         </div>
-        <div class="collapse-content text-sm">
-            <div class="contentSpacing">
-                <p>
-                    Ob kleine Nische, oder große Küche im Landhausstil.
-                    Natürlich kümmern wir uns auch um den Abbau und die
-                    fachgerechte Entsorgung ihrer alten Küchenmöbel und
-                    Elektrogeräte.
-                </p>
-
-                <Image
-                    src={kuecheLandhaus}
-                    alt="Ein Bild einer Landhausküche von Knop Neustadt."
-                    class="collapseImage"
-                    widths={[240, 540, 1400]}
-                    sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
-                    loading="eager"
-                />
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    .collapse {
-        border-bottom: var(--color-knop-magenta) 1px solid;
-        border-radius: 0;
-        font-size: 2rem;
+  .processSection {
+    background-color: var(--color-dark);
+  }
 
-        p {
-            font-size: clamp(1rem, 4vw, 1.25rem);
-        }
+  .collapse {
+    border-bottom: var(--color-knop-magenta) 1px solid;
+    border-radius: 0;
+    font-size: 2rem;
+
+    p {
+      font-size: clamp(1rem, 4vw, 1.25rem);
+    }
+  }
+
+  .collapseImage {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    margin: 1rem 0rem;
+    aspect-ratio: 1/1;
+  }
+
+  .collapse:nth-of-type(4) .collapseImage {
+    object-position: top;
+  }
+
+  .collapse-title {
+    display: flex;
+    font-family: var(--font-alumni);
+    gap: 0.5rem;
+    align-items: center;
+    padding: 1rem 2rem 1rem 0;
+
+    p {
+      text-align: center;
+      font-size: clamp(2rem, 8vw, 3rem);
+      line-height: 1;
+    }
+  }
+
+  .collapse-title::after {
+    top: 50%;
+    transform: translateY(-50%);
+    width: fit-content;
+    height: fit-content;
+    right: 0.5rem;
+    font-family: var(--font-alumni);
+    font-weight: 400;
+    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .processWrapper {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    min-height: 105vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: var(--max-width);
+
+    margin: auto;
+    .collapse {
+      background-color: var(--color-dark);
+    }
+
+    .subHeading {
+      padding: 0;
+    }
+  }
+
+  .collapse-content {
+    padding: 0;
+  }
+
+  .processNumber {
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .collapse {
+      font-size: 4rem;
+    }
+    .collapse-title {
+      gap: 1rem;
     }
 
     .collapseImage {
-        width: 100%;
-        height: 50%;
-        object-fit: cover;
-        margin: 1rem 0rem;
-        aspect-ratio: 1/1;
+      width: auto;
+      height: auto;
+      max-height: 50vh;
+      margin: 0;
+      grid-column: 7/13;
+      justify-self: end;
     }
 
-    .collapse:nth-of-type(4) .collapseImage {
-        object-position: top;
+    .contentSpacing {
+      display: grid;
+      margin: 0;
+      padding: 2rem 0rem;
+
+      grid-template-columns: repeat(12, 1fr);
+      p {
+        align-self: end;
+        grid-column: 1/6;
+        max-width: 800px;
+      }
+
+      .collapse-plus {
+        font-size: 1rem;
+        transform: translate(2rem 2rem);
+      }
     }
 
-    .collapse-title {
-        display: flex;
-        font-family: var(--font-alumni);
-        gap: 0.5rem;
-        align-items: center;
-        padding: 1rem 2rem 1rem 0;
-
-        p {
-            text-align: center;
-            font-size: clamp(2rem, 8vw, 3rem);
-            line-height: 1;
-        }
+    .processNumber {
+      display: block;
     }
-
-    .collapse-title::after {
-        top: 50%;
-        transform: translateY(-50%);
-        width: fit-content;
-        height: fit-content;
-        right: 0.5rem;
-        font-family: var(--font-alumni);
-        font-weight: 400;
-        font-size: 4rem;
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
-
-    .processWrapper {
-        background-color: var(--color-dark);
-        color: var(--color-light);
-        min-height: 105vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        .collapse {
-            background-color: var(--color-dark);
-        }
-
-        .subHeading {
-            padding: 0;
-        }
-    }
-
-    .collapse-content {
-        padding: 0;
-    }
-
-    @media screen and (min-width: 1024px) {
-        .collapse {
-            font-size: 4rem;
-        }
-        .collapse-title {
-            gap: 1rem;
-        }
-
-        .collapseImage {
-            width: auto;
-            height: auto;
-            max-height: 50vh;
-            margin: 0;
-            grid-column: 7/13;
-            justify-self: end;
-        }
-
-        .contentSpacing {
-            display: grid;
-            margin: 0;
-            padding: 2rem 0rem;
-
-            grid-template-columns: repeat(12, 1fr);
-            p {
-                align-self: end;
-                grid-column: 1/6;
-                max-width: 800px;
-            }
-
-            .collapse-plus {
-                font-size: 1rem;
-                transform: translate(2rem 2rem);
-            }
-        }
-    }
+  }
 </style>

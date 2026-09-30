@@ -1,0 +1,38 @@
+---
+interface Props {
+  heading: string;
+  text: string;
+  imgPath: ImageMetadata;
+  imgAltText: string;
+  link?: string;
+}
+
+const { text, imgPath, imgAltText, heading, link = "" } = Astro.props;
+import Image from "astro/components/Image.astro";
+import KnopLink from "./KnopLink.astro";
+---
+
+<section class="md:flex items-center">
+  <div
+    class="wrapper textBlockPictureWrapper md:flex items-center justify-between md:h-[70vh]"
+  >
+    <Image
+      src={imgPath}
+      alt={imgAltText}
+      widths={[240, 540, 1400]}
+      sizes="(max-width: 360px) 240px,(max-width:720px) 540px, (max-width: 1600px) 1400px"
+      class="w-full md:w-1/2 h-64 md:h-full object-cover md:pr-(--padding-desktop)"
+    />
+
+    <div class="md:ml-auto md:max-w-[50%]">
+      <h2>{heading}</h2>
+      <p>{text}</p>
+      <KnopLink linkto={link} linkName="Mehr erfahren!" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .textBlockPictureWrapper {
+  }
+</style>

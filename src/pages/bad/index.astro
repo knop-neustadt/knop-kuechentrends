@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import KnopPartners from "../../components/KnopPartners.astro";
+import { partners } from "../../data/partnersBad.ts";
+import KnopWelcome from "../../components/KnopWelcome.astro";
+import KnopProcess from "../../components/KnopProcess.astro";
+import KnopContact from "../../components/KnopContact.astro";
+import KnopTextBlockPicture from "../../components/KnopTextBlockPicture.astro";
+import image from "../../assets/images/bad/Geberit Acanto (13).jpg";
+---
+
+<Layout title="Knop Badstudio" description="Bäder von Knop Neustadt">
+  <KnopWelcome
+    subHeading="Badstudio"
+    headingMain1="Ihr Partner"
+    headingSpan="für das neue Bad"
+    headingMain2="in Neustadt!"
+    paragraph="Knop Neustadt schafft Bäder, die leben. Mit handwerklicher Präzision und modernem Design entstehen Räume, in denen Qualität spürbar wird."
+    bgMobile="/images/badWelcome.webp"
+    bgDesktop="/images/badWelcome.webp"
+  />
+
+  <KnopPartners partners={partners} />
+
+  <KnopProcess />
+
+  <KnopTextBlockPicture
+    heading="Ihr barrierefreies Bad!"
+    text="Barrierefreie Bäder sind ein zentraler Baustein für Komfort, Sicherheit und Zukunftsfähigkeit. Aufgrund der zunehmenden Alterung der Gesell schaft werden für die nächsten Jahre eine weitere Zunahme der Zahl der Pflege bedürftigen und ein erhöhter Versorgungs bedarf – auch zu Hause – erwartet."
+    imgAltText="Bild aus der Badausstellung bei Knop Neustadt"
+    imgPath={image}
+    link="/bad/barrierefrei"
+  />
+
+  <KnopContact />
+</Layout>

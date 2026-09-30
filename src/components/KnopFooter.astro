@@ -7,130 +7,133 @@ import Phone from "../assets/svgs/Phone.svg";
 import Location from "../assets/svgs/Location.svg";
 ---
 
-<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
-    <aside>
-        <Image
-            src={logoWhite}
-            alt="Logo von Knop Küchentrends Neustadt"
-            width={300}
-            loading={"eager"}
-        />
-        <p>
-            Knop Neustadt GmbH
-            <br />
-            Ihr Partner für Küchentrends.
-        </p>
-    </aside>
-
-    <nav>
-        <h3 class="footer-title">Unternehmen</h3>
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a
-                href="https://knop-neustadt.de"
-                class="link link-hover"
-                target="_blank">Ambientezentrum</a
-            >
-        </div>
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a
-                href="https://knop-energietechnik.de/"
-                class="link link-hover"
-                target="_blank">Energietechnik</a
-            >
-        </div>
-
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a
-                href="https://knop-kuechentrends.de"
-                class="link link-hover"
-                target="_blank">Küchentrends</a
-            >
-        </div>
-
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a
-                href="https://karriere.knop-neustadt.de"
-                class="link link-hover"
-                target="_blank">Karriere</a
-            >
-        </div>
-    </nav>
-
-    <nav>
-        <h3 class="footer-title">Kontakt</h3>
-        <div class="footerLinkWrapper">
-            <Phone width={20} height={20} class="linkArrow" />
-
-            <a href="tel:+49456139790" class="link link-hover">04561/39790</a>
-        </div>
-        <div class="footerLinkWrapper">
-            <Mail width={20} height={20} class="linkArrow" />
-
-            <a href="mailto:info@knop-neustadt.de" class="link link-hover"
-                >Info@knop-neustadt.de</a
-            >
-        </div>
-        <div class="footerLinkWrapper">
-            <Location width={20} height={20} class="linkArrow" />
-
-            <p>Wagrienring 12-14</p>
-        </div>
-    </nav>
-    <nav>
-        <h3 class="footer-title">Socials</h3>
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a
-                href="https://www.instagram.com/knop_neustadt_gmbh/"
-                class="link link-hover"
-                target="_blank">Instagram</a
-            >
-        </div>
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a
-                href="https://www.facebook.com/profile.php?id=100088812180260"
-                class="link link-hover"
-                target="_blank">Facebook</a
-            >
-        </div>
-    </nav>
-    <nav>
-        <h3 class="footer-title">Legal</h3>
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a
-                href="https://www.knop-neustadt.de/agbs/"
-                class="link link-hover"
-                target="_blank">AGB's</a
-            >
-        </div>
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a href="/impressum" class="link link-hover">Impressum</a>
-        </div>
-        <div class="footerLinkWrapper">
-            <Link_arrow width={20} height={20} class="linkArrow" />
-            <a href="/datenschutz" class="link link-hover">Datenschutz</a>
-        </div>
-    </nav>
+<footer>
+    <div
+        class="footer footerWrapper sm:footer-horizontal bg-base-200 text-base-content p-10"
+    >
+        <aside>
+            <Image
+                src={logoWhite}
+                alt="Logo von Knop Küchentrends Neustadt"
+                width={300}
+                loading={"eager"}
+            />
+            <p>
+                Knop Neustadt GmbH
+                <br />
+                Ihr Partner für Küchentrends.
+            </p>
+        </aside>
+        <nav>
+            <h3 class="footer-title">Unternehmen</h3>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a
+                    href="https://knop-neustadt.de"
+                    class="link link-hover"
+                    target="_blank">Ambientezentrum</a
+                >
+            </div>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a
+                    href="https://knop-energietechnik.de/"
+                    class="link link-hover"
+                    target="_blank">Energietechnik</a
+                >
+            </div>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a
+                    href="https://knop-kuechentrends.de"
+                    class="link link-hover"
+                    target="_blank">Küchentrends</a
+                >
+            </div>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a
+                    href="https://karriere.knop-neustadt.de"
+                    class="link link-hover"
+                    target="_blank">Karriere</a
+                >
+            </div>
+        </nav>
+        <nav>
+            <h3 class="footer-title">Kontakt</h3>
+            <div class="footerLinkWrapper">
+                <Phone width={20} height={20} class="linkArrow" />
+                <a href="tel:+49456139790" class="link link-hover"
+                    >04561/39790</a
+                >
+            </div>
+            <div class="footerLinkWrapper">
+                <Mail width={20} height={20} class="linkArrow" />
+                <a href="mailto:info@knop-neustadt.de" class="link link-hover"
+                    >Info@knop-neustadt.de</a
+                >
+            </div>
+            <div class="footerLinkWrapper">
+                <Location width={20} height={20} class="linkArrow" />
+                <p>Wagrienring 12-14</p>
+            </div>
+        </nav>
+        <nav>
+            <h3 class="footer-title">Socials</h3>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a
+                    href="https://www.instagram.com/knop_neustadt_gmbh/"
+                    class="link link-hover"
+                    target="_blank">Instagram</a
+                >
+            </div>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a
+                    href="https://www.facebook.com/profile.php?id=100088812180260"
+                    class="link link-hover"
+                    target="_blank">Facebook</a
+                >
+            </div>
+        </nav>
+        <nav>
+            <h3 class="footer-title">Legal</h3>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a
+                    href="https://www.knop-neustadt.de/agbs/"
+                    class="link link-hover"
+                    target="_blank">AGB's</a
+                >
+            </div>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a href="/impressum" class="link link-hover">Impressum</a>
+            </div>
+            <div class="footerLinkWrapper">
+                <Link_arrow width={20} height={20} class="linkArrow" />
+                <a href="/datenschutz" class="link link-hover">Datenschutz</a>
+            </div>
+        </nav>
+    </div>
 </footer>
 
 <style>
-    .footer {
+    footer {
+        background-color: var(--color-dark);
+        border-top: var(--border-color) 1px solid;
+    }
+    .footerWrapper {
         padding: var(--padding-mobile);
         color: var(--color-light);
         background-color: var(--color-dark);
-        border-top: var(--border-color) 1px solid;
 
         font-size: 1rem;
         margin-top: auto;
 
-
+        max-width: var(--max-width);
+        margin: auto;
 
         p {
             font-size: 1rem;
@@ -158,7 +161,7 @@ import Location from "../assets/svgs/Location.svg";
     }
 
     @media screen and (min-width: 800px) {
-        .footer {
+        .footerWrapper {
             padding: var(--padding-tablet);
             padding-top: 2rem;
             padding-bottom: 2rem;
@@ -177,8 +180,8 @@ import Location from "../assets/svgs/Location.svg";
     }
 
     @media screen and (min-width: 1600px) {
-        .footer {
-            padding: 4rem var(--padding-desktop);
+        .footerWrapper {
+            padding: 0;
         }
     }
 </style>

@@ -91,48 +91,49 @@ const galleryItems = await Promise.all(
 );
 ---
 
-<div
-    id="kuechen-gallery"
-    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 grid-flow-dense pb-4 md:pb-8"
->
-    {
-        galleryItems.map((item) => (
-            <a
-                href={item.image.src}
-                data-pswp-width={item.image.width / 1.5}
-                data-pswp-height={item.image.height / 1.5}
-                target="_blank"
-                class={`group relative block overflow-hidden bg-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg galleryImageLink ${item.spanClasses}`}
-                style={`background-image: url(${item.placeholder.src}); background-size: cover; background-position: center; backdrop-filter: blur(10px);`}
-            >
-                <Image
-                    src={item.image}
-                    alt={item.alt}
-                    width={item.image.width / 4}
-                    height={item.image.height / 4}
-                    format="webp"
-                    class={`w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
-                        item.spanClasses.includes("row-span-2")
-                            ? "h-[36.75rem]"
-                            : "h-72"
-                    }`}
-                />
-
-                <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-5">
-                    <span class="text-sm font-bold uppercase">
-                        {item.category}
-                    </span>
-                    <p class="mt-1 text-sm font-medium text-white line-clamp-2">
-                        {item.title}
-                    </p>
-                </div>
-            </a>
-        ))
-    }
-</div>
+<section>
+    <div
+        id="kuechen-gallery"
+        class="kuechen-gallery grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 grid-flow-dense pb-4 md:pb-8"
+    >
+        {
+            galleryItems.map((item) => (
+                <a
+                    href={item.image.src}
+                    data-pswp-width={item.image.width / 1.5}
+                    data-pswp-height={item.image.height / 1.5}
+                    target="_blank"
+                    class={`group relative block overflow-hidden bg-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg galleryImageLink ${item.spanClasses}`}
+                    style={`background-image: url(${item.placeholder.src}); background-size: cover; background-position: center; backdrop-filter: blur(10px);`}
+                >
+                    <Image
+                        src={item.image}
+                        alt={item.alt}
+                        width={item.image.width / 4}
+                        height={item.image.height / 4}
+                        format="webp"
+                        class={`w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
+                            item.spanClasses.includes("row-span-2")
+                                ? "h-[36.75rem]"
+                                : "h-72"
+                        }`}
+                    />
+    
+                    <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-5">
+                        <span class="text-sm font-bold uppercase">
+                            {item.category}
+                        </span>
+                        <p class="mt-1 text-sm font-medium text-white line-clamp-2">
+                            {item.title}
+                        </p>
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</section>
 
 <style>
-
     span {
         color: var(--color-light);
     }
@@ -178,6 +179,11 @@ const galleryItems = await Promise.all(
         100% {
             background-color: rgba(255, 255, 255, 0);
         }
+    }
+
+    section{
+        padding-bottom: 0;
+        padding-top: 0;
     }
 
 </style>

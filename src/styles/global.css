@@ -21,7 +21,7 @@
     --border-radius-mobile: 5px;
     --border-color: rgb(204, 204, 204);
     --animation-time: 0.2s;
-    --max-width: 1440px;
+    --max-width: 1800px;
 }
 
 
@@ -44,7 +44,7 @@ main {
     font-family: var(--font-switzer), sans-serif;
 }
 
-.kuechenGalerieMain {
+.kuechenGalerieMain,.badGalerieMain {
     background-color: var(--color-dark);
 }
 
@@ -115,7 +115,7 @@ a {
 }
 
 section {
-    padding: var(--padding-top-mobile) var(--padding-mobile);
+    padding: var(--padding-mobile);
 }
 
 img {
@@ -175,10 +175,15 @@ footer {
     }
 }
 
+.wrapper{
+    max-width: var(--max-width);
+    margin: auto;
+}
+
 @media screen and (min-width:760px) {
 
     section {
-        padding: var(--padding-top-tablet) var(--padding-tablet);
+        padding: var(--padding-tablet);
     }
 
 
@@ -187,8 +192,8 @@ footer {
 
 @media screen and (min-width:1600px) {
 
-    section {
-        padding: var(--padding-top-desktop) var(--padding-desktop);
+    section, footer {
+        padding: var(--padding-desktop);
     }
 
 

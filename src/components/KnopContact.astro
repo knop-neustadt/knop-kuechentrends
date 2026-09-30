@@ -29,7 +29,7 @@ import Image from "astro/components/Image.astro";
                         <input type="email" id="email" name="email" required />
                     </div>
                     <div class="formInput">
-                        <label for="number">Telefonnummer:</label>
+                        <label for="number">Telefonnummer:*</label>
                         <input
                             type="text"
                             id="number"
@@ -131,6 +131,11 @@ import Image from "astro/components/Image.astro";
         font-weight: 500;
         padding-bottom: 0.25rem;
     }
+
+    .contactWrapper{
+        max-width: var(--max-width);
+        margin: auto;
+    }
     @media screen and (min-width: 760px) {
         .contactSection {
             min-height: 100vh;
@@ -190,20 +195,15 @@ import Image from "astro/components/Image.astro";
         }
     }
 
-    @media screen and (min-width: 1450px) {
+    @media screen and (min-width: 1600px) {
         .formLeftContent {
             padding-right: var(--column-width-desktop);
         }
 
         img{
-            grid-column: 8/12;
+            grid-column: 7/13;
 
         }
     }
 
-    @media screen and (min-width: 1800px) {
-        .formLeftContent {
-            padding: 0 var(--column-width-desktop);
-        }
-    }
 </style>

@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import KnopGallery from "../components/KnopGallery.astro";
+import Image from "astro/components/Image.astro";
+import landHausImage from "../assets/images/kueche/galerie/Landhaus_Moderne Landhausküche in Anhtrazit und Holz 2.jpg";
+import KnopGalleryWelcome from "../components/KnopGalleryWelcome.astro";
+---
+
+<Layout
+  title="Küchenreferenzen aus Neustadt in Holstein | Knop Küchentrends"
+  description="Entdecken Sie Küchenreferenzen von Knop Küchentrends aus Neustadt in Holstein. Moderne Einbauküchen, Landhausküchen, Kücheninseln und individuelle Küchenplanung in Ostholstein."
+  mainClass="kuechenGalerieMain"
+>
+  <KnopGalleryWelcome
+    heading="Küchen"
+    text="Knop Neustadt verbindet moderne Küchenplanung mit jahrelanger Erfahrung.
+      In unserem großen Küchenstudio überzeugen wir Sie mit eleganten Grifflos-,
+      klassischen Landhaus- oder ausgefallenen Designküchen."
+    image={landHausImage}
+  />
+
+  <KnopGallery
+    altText="Küchenreferenz von Knop Küchentrends in Neustadt in Holstein"
+    imagePathGewerk="kueche"
+    class:list="kuechen-gallery"
+  />
+</Layout>
+
+<style>
+  section {
+    color: var(--color-light);
+  }
+</style>
